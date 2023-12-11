@@ -17,26 +17,10 @@ struct SummaryView: View {
         NavigationStack {
             List {
                 Section("Today's Stats") {
-                    
                     NavigationLink {
-                        Text("Stats")
+                        SummaryDetailView()
                     } label: {
-                        HStack {
-                            VStack(alignment: .leading, spacing: 15) {
-                                StatsVStack(name: "Exercises", value: "8", color: .cyan)
-                                
-                                StatsVStack(name: "Reps", value: "166", color: .green)
-                                
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            VStack(alignment: .leading, spacing: 15) {
-                                StatsVStack(name: "Sets", value: "22", color: .red)
-                                
-                                StatsVStack(name: "Volume", value: "5 kg", color: .orange)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        }
+                        StatsView(exercises: 8, reps: 22, sets: 166, volume: 5)
                     }
 
                 }
@@ -103,6 +87,32 @@ struct StatsVStack: View {
                 .foregroundStyle(color)
                 .font(.title2)
                 .bold()
+        }
+    }
+}
+
+struct StatsView: View {
+    let exercises: Int
+    let reps: Int
+    let sets: Int
+    let volume: Int
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 15) {
+                StatsVStack(name: "Exercises", value: "\(exercises)", color: .cyan)
+                
+                StatsVStack(name: "Reps", value: "\(reps)", color: .green)
+                
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            
+            VStack(alignment: .leading, spacing: 15) {
+                StatsVStack(name: "Sets", value: "\(sets)", color: .red)
+                
+                StatsVStack(name: "Volume", value: "\(volume) kg", color: .orange)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }
