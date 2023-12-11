@@ -7,20 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F03BFC132B27178A006FE46A /* SummaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03BFC122B27178A006FE46A /* SummaryDetailView.swift */; };
 		F05D98A52B221C140085DE0A /* FitFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98A42B221C140085DE0A /* FitFlowApp.swift */; };
 		F05D98A72B221C140085DE0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98A62B221C140085DE0A /* ContentView.swift */; };
 		F05D98A92B221C140085DE0A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98A82B221C140085DE0A /* Item.swift */; };
 		F05D98AB2B221C140085DE0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05D98AA2B221C140085DE0A /* Assets.xcassets */; };
 		F05D98AE2B221C140085DE0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05D98AD2B221C140085DE0A /* Preview Assets.xcassets */; };
+		F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98B42B2224E00085DE0A /* SummaryView.swift */; };
+		F0C2DBE92B27832E00C610A3 /* StatsVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBE82B27832E00C610A3 /* StatsVStack.swift */; };
+		F0C2DBEB2B27836100C610A3 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBEA2B27836100C610A3 /* StatsView.swift */; };
+		F0C2DBED2B27839C00C610A3 /* WorkoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBEC2B27839C00C610A3 /* WorkoutRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F03BFC122B27178A006FE46A /* SummaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailView.swift; sourceTree = "<group>"; };
 		F05D98A12B221C140085DE0A /* FitFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05D98A42B221C140085DE0A /* FitFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitFlowApp.swift; sourceTree = "<group>"; };
 		F05D98A62B221C140085DE0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F05D98A82B221C140085DE0A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F05D98AA2B221C140085DE0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F05D98AD2B221C140085DE0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F05D98B42B2224E00085DE0A /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		F0C2DBE82B27832E00C610A3 /* StatsVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVStack.swift; sourceTree = "<group>"; };
+		F0C2DBEA2B27836100C610A3 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		F0C2DBEC2B27839C00C610A3 /* WorkoutRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +63,8 @@
 		F05D98A32B221C140085DE0A /* FitFlow */ = {
 			isa = PBXGroup;
 			children = (
-				F05D98A42B221C140085DE0A /* FitFlowApp.swift */,
-				F05D98A62B221C140085DE0A /* ContentView.swift */,
+				F0C2DBE02B27827800C610A3 /* Core */,
+				F0C2DBE12B27827F00C610A3 /* Features */,
 				F05D98A82B221C140085DE0A /* Item.swift */,
 				F05D98AA2B221C140085DE0A /* Assets.xcassets */,
 				F05D98AC2B221C140085DE0A /* Preview Content */,
@@ -68,6 +78,67 @@
 				F05D98AD2B221C140085DE0A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F0C2DBE02B27827800C610A3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F0C2DBE22B27828800C610A3 /* App */,
+				F0C2DBE42B27829400C610A3 /* Components */,
+				F0C2DBE32B27828E00C610A3 /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F0C2DBE12B27827F00C610A3 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F0C2DBE52B2782B100C610A3 /* Summary */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F0C2DBE22B27828800C610A3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F05D98A42B221C140085DE0A /* FitFlowApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F0C2DBE32B27828E00C610A3 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				F05D98A62B221C140085DE0A /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		F0C2DBE42B27829400C610A3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F0C2DBE82B27832E00C610A3 /* StatsVStack.swift */,
+				F0C2DBEA2B27836100C610A3 /* StatsView.swift */,
+				F0C2DBEC2B27839C00C610A3 /* WorkoutRowView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F0C2DBE52B2782B100C610A3 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				F0C2DBE72B2782BB00C610A3 /* View */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		F0C2DBE72B2782BB00C610A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F03BFC122B27178A006FE46A /* SummaryDetailView.swift */,
+				F05D98B42B2224E00085DE0A /* SummaryView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +212,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F05D98A72B221C140085DE0A /* ContentView.swift in Sources */,
+				F03BFC132B27178A006FE46A /* SummaryDetailView.swift in Sources */,
+				F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */,
 				F05D98A92B221C140085DE0A /* Item.swift in Sources */,
 				F05D98A52B221C140085DE0A /* FitFlowApp.swift in Sources */,
+				F0C2DBED2B27839C00C610A3 /* WorkoutRowView.swift in Sources */,
+				F0C2DBEB2B27836100C610A3 /* StatsView.swift in Sources */,
+				F0C2DBE92B27832E00C610A3 /* StatsVStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
