@@ -24,6 +24,9 @@
 		F0C2DBEF2B27889600C610A3 /* FitFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBEE2B27889600C610A3 /* FitFlowApp.swift */; };
 		F0C2DBF12B2788AB00C610A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBF02B2788AB00C610A3 /* ContentView.swift */; };
 		F0C2DBF52B27890C00C610A3 /* TopTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBF42B27890C00C610A3 /* TopTextModifier.swift */; };
+		F0C2DBF92B27922B00C610A3 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBF82B27922B00C610A3 /* Workout.swift */; };
+		F0C2DBFB2B27935200C610A3 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBFA2B27935200C610A3 /* Exercise.swift */; };
+		F0C2DBFD2B27947C00C610A3 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBFC2B27947C00C610A3 /* Set.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		F0C2DBEE2B27889600C610A3 /* FitFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitFlowApp.swift; sourceTree = "<group>"; };
 		F0C2DBF02B2788AB00C610A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F0C2DBF42B27890C00C610A3 /* TopTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTextModifier.swift; sourceTree = "<group>"; };
+		F0C2DBF82B27922B00C610A3 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		F0C2DBFA2B27935200C610A3 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = ../../../../../../Desktop/Exercise.swift; sourceTree = "<group>"; };
+		F0C2DBFC2B27947C00C610A3 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 			children = (
 				F0C2DBE22B27828800C610A3 /* App */,
 				F0C2DBE42B27829400C610A3 /* Components */,
+				F0C2DBF72B27921B00C610A3 /* Models */,
 				F0C2DBF32B2788F900C610A3 /* Modifiers */,
 				F0C2DBE32B27828E00C610A3 /* Root */,
 			);
@@ -186,6 +193,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F0C2DBF72B27921B00C610A3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F0C2DBFA2B27935200C610A3 /* Exercise.swift */,
+				F0C2DBF82B27922B00C610A3 /* Workout.swift */,
+				F0C2DBFC2B27947C00C610A3 /* Set.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,9 +276,12 @@
 				1ACD41942B272F54002C92F6 /* PieChartView.swift in Sources */,
 				1ACD418E2B222EC6002C92F6 /* TopStatView.swift in Sources */,
 				F0C2DBF12B2788AB00C610A3 /* ContentView.swift in Sources */,
+				F0C2DBFB2B27935200C610A3 /* Exercise.swift in Sources */,
+				F0C2DBF92B27922B00C610A3 /* Workout.swift in Sources */,
 				1ACD418A2B2225EB002C92F6 /* ExerciseDetailView.swift in Sources */,
 				1ACD41902B271368002C92F6 /* RepsListView.swift in Sources */,
 				F03BFC132B27178A006FE46A /* SummaryDetailView.swift in Sources */,
+				F0C2DBFD2B27947C00C610A3 /* Set.swift in Sources */,
 				F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */,
 				F05D98A92B221C140085DE0A /* Item.swift in Sources */,
 				1ACD41922B27142B002C92F6 /* RepRowView.swift in Sources */,
