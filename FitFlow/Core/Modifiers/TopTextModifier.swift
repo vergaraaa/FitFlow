@@ -1,5 +1,5 @@
 //
-//  Modifiers.swift
+//  TopTextModifier.swift
 //  FitFlow
 //
 //  Created by Tlanetzi Chavez Madero on 07/12/23.
@@ -16,13 +16,5 @@ struct TopTextModifier: ViewModifier {
             .padding(10)
             .background(Color.gray.opacity(0.2))
             .cornerRadius(10)
-    }
-}
-struct RepTextModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .font(.headline)
-            .foregroundColor(.blue)
-            .padding()
     }
 }
