@@ -22,13 +22,12 @@ struct SummaryView: View {
                     } label: {
                         StatsView(exercises: 8, reps: 22, sets: 166, volume: 5)
                     }
-
                 }
                 
                 Section {
                     ForEach(workouts, id: \.self) { workout in
                         NavigationLink {
-                            Text(workout)
+                            WorkoutDetailView()
                         } label: {
                             WorkoutRowView(name: workout)
                         }
