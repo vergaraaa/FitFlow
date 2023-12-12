@@ -29,7 +29,7 @@ struct SummaryView: View {
                 Section {
                     ForEach(workouts) { workout in
                         NavigationLink {
-                            WorkoutDetailView()
+                            WorkoutDetailView(workout: workout)
                         } label: {
                             WorkoutRowView(name: workout.name)
                         }
@@ -51,7 +51,9 @@ struct SummaryView: View {
             .navigationTitle("Summary")
             .sheet(isPresented: $showAddWorkoutSheet) {
                 Button("Add workout") {
-                    let newWorkout = Workout(name: "Test \(workouts.count + 1)", wDescription: nil, exercises: [])
+                    let newWorkout = Workout(name: "Test \(workouts.count + 1)", wDescription: nil, exercises: [Exercise(name: "nameee", note: "nioooore", sets: [])])
+                    
+                    print(newWorkout)
                     
                     modelContext.insert(newWorkout)
                     
