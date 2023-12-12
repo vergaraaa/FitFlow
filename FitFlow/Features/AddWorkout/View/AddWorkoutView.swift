@@ -14,6 +14,8 @@ struct AddWorkoutView: View {
     
     @Binding var showAddWorkoutSheet: Bool
     
+    @Environment(\.modelContext) private var modelContext
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -61,105 +63,20 @@ struct AddWorkoutView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") {
+                        var newWorkout = Workout(
+                            name: name,
+                            wDescription: description,
+                            exercises: []
+                        )
+                        
+                        modelContext.insert(newWorkout)
+                        
                         showAddWorkoutSheet.toggle()
                     }
                     .bold()
                 }
             }
         }
-        //        VStack {
-        //            HStack {
-        //                Button(action: {
-        //
-        //                }) {
-        //                    Text("Cancel")
-        //                        .foregroundColor(.blue)
-        //                        .padding(.horizontal, 20)
-        //                        .padding(.bottom, -10)
-        //                }
-        //                Spacer()
-        //                Button(action: {
-        //
-        //                }) {
-        //                    Text("Done")
-        //                        .foregroundColor(.blue)
-        //                        .padding(.horizontal, 20)
-        //                        .padding(.top, 10)
-        //                }
-        //            }
-        //            .padding()
-        //
-        //            Spacer()
-        //
-        //            // Add Workout Text
-        //            Text("Add Workout")
-        //                .font(.headline)
-        //                .foregroundColor(.black)
-        //                .padding(.top, -695)
-        //            Spacer()
-        //
-        //            // Blue Circle
-        //            Circle()
-        //                .foregroundColor(.blue)
-        //                .frame(width: 80, height: 80)
-        //                .padding(.top, -650)
-        //
-        //            Spacer()
-        //
-        //            // Dumbbell Symbol with Increased Size
-        //            Image(systemName: "dumbbell")
-        //                .resizable()
-        //                .aspectRatio(contentMode: .fit)
-        //                .frame(width: 50, height: 50)
-        //                .foregroundColor(.black)
-        //                .padding(.top, -640)
-        //
-        //            Spacer()
-        //
-        //            // Heading and Text Box for NAME
-        //            VStack(alignment: .leading, spacing: 10) {
-        //                Text("NAME")
-        //                    .font(.body)
-        //                    .foregroundColor(.gray)
-        //                    .padding(.bottom, 0)
-        //
-        //                TextField("Enter workout name", text: $workoutName)
-        //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-        //            }
-        //            .padding(.horizontal, 20)
-        //            .cornerRadius(5)
-        //            .padding(.leading, 10)
-        //            .padding(.top, -540)
-        //
-        //            Text("Popular names can be: Workout Type, Day of the Week, Muscle Group.")
-        //                .font(.caption)
-        //                .foregroundColor(.gray)
-        //                .padding(.top, -470)
-        //                .padding(.leading, -5)
-        //
-        //            Spacer()
-        //
-        //            // Heading and Text Box for DESCRIPTION
-        //            VStack(alignment: .leading, spacing: 10) {
-        //                Text("DESCRIPTION")
-        //                    .font(.body)
-        //                    .foregroundColor(.gray)
-        //                    .padding(.bottom, 0)
-        //
-        //                TextField("Description", text: $workoutDescription)
-        //                    .textFieldStyle(RoundedBorderTextFieldStyle())
-        //            }
-        //            .padding(.horizontal, 20)
-        //            .cornerRadius(5)
-        //            .padding(.leading, 10)
-        //            .padding(.top, -410)
-        //
-        //            Text("Want to add some details? Go ahead!")
-        //                .font(.caption)
-        //                .foregroundColor(.gray)
-        //                .padding(.top, -340)
-        //                .padding(.leading, -120)
-        //        }
     }
 }
 

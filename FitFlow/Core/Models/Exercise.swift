@@ -11,7 +11,7 @@ import Foundation
 @Model
 class Exercise {
     var name: String
-    var note: String
+    var note: String?
     var workout: Workout?
     @Relationship(
         deleteRule: .cascade,

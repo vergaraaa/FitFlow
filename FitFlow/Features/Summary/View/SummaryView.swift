@@ -29,7 +29,7 @@ struct SummaryView: View {
                 Section {
                     ForEach(workouts) { workout in
                         NavigationLink {
-                            WorkoutDetailView()
+                            WorkoutDetailView(workout: workout)
                         } label: {
                             WorkoutRowView(name: workout.name)
                         }

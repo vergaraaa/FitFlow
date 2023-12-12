@@ -9,61 +9,26 @@ import SwiftUI
 import SwiftData
 
 struct WorkoutDetailView: View {
-//    @Environment(\.modelContext) private var modelContext
-//    @Query private var workouts: [Workout]
-    @State private var currentFolderName: String = "New folder"
-    @State private var newSet = ""
-    @State private var newName = ""
-
+    var workout: Workout
     
     var body: some View {
-        NavigationStack {
-            
-            Form {
-//                ForEach(items) { item in
-//                    
-//                    Section {
-//                        Text("\(item.name) \n \(item.set)")
-//                    }
-//                    .scenePadding(.minimum, edges: /*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-//                   
-//                }
-//                .onDelete(perform: deleteItems)
-//                
-                HStack(){
-                    TextField("Add a new exercise...", text: $newName)
-                    
-                    Button(action: {}) {
-                        Image(systemName: "plus")
+        Form {
+            Section("Exercises") {
+                ForEach(workout.excercises) { exercise in
+                    if(workout.excercises.isEmpty) {
+                        Text("Empty")
+                    }
+                    else {
+                        Text("Not empty")
                     }
                 }
             }
-            .navigationBarTitle(currentFolderName, displayMode: .inline)
-            
-            
         }
-        
+        .navigationBarTitle(workout.name, displayMode: .inline)
     }
-    
-//    func addItem() {
-//            withAnimation {
-//                let newItem = Item(name: newName, set: newSet)
-//                modelContext.insert(newItem)
-//                newName = ""
-//                newSet = ""
-//        }
-//    }
-//    
-//    private func deleteItems(offsets: IndexSet) {
-//        withAnimation {
-//            for index in offsets {
-//                modelContext.delete(items[index])
-//            }
-//        }
-//    }
 }
 
 
 #Preview {
-    WorkoutDetailView()
+    WorkoutDetailView(workout: Workout(name: "", wDescription: "", exercises: [ ]))
 }

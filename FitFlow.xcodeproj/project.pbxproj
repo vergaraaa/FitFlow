@@ -155,6 +155,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F0B3A22A2B28AAA600E4364E /* AddExercise */ = {
+			isa = PBXGroup;
+			children = (
+				F0B3A22B2B28AABB00E4364E /* View */,
+			);
+			path = AddExercise;
+			sourceTree = "<group>";
+		};
+		F0B3A22B2B28AABB00E4364E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F0C2DBE02B27827800C610A3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				0AD51B9F2B28985B006EC3F1 /* AddWorkout */,
+				F0B3A22A2B28AAA600E4364E /* AddExercise */,
 				F07FF6222B28795D00E23861 /* EditSet */,
 				F0C2DBF22B2788EA00C610A3 /* ExerciseDetail */,
 				F0C2DBE52B2782B100C610A3 /* Summary */,
