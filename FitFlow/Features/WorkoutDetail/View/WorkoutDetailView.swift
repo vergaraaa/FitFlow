@@ -11,20 +11,32 @@ import SwiftData
 struct WorkoutDetailView: View {
     var workout: Workout
     
+    @State private var showAddExerciseSheet = false
+    
     var body: some View {
         Form {
-            Section("Exercises") {
+            Section {
                 ForEach(workout.excercises) { exercise in
-                    if(workout.excercises.isEmpty) {
-                        Text("Empty")
-                    }
-                    else {
-                        Text("Not empty")
+                    Text(exercise.name)
+                }
+            } header: {
+                HStack {
+                    Text("Exercises")
+                    
+                    Spacer()
+                    
+                    Button {
+                        showAddExerciseSheet.toggle()
+                    } label: {
+                        Image(systemName: "plus")
                     }
                 }
             }
         }
         .navigationBarTitle(workout.name, displayMode: .inline)
+        .sheet(isPresented: $showAddExerciseSheet) {
+            AddExerciseView(workout: workout, showAddExerciseSheet: $showAddExerciseSheet)
+        }
     }
 }
 
