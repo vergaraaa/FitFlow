@@ -50,13 +50,7 @@ struct SummaryView: View {
             }
             .navigationTitle("Summary")
             .sheet(isPresented: $showAddWorkoutSheet) {
-                Button("Add workout") {
-                    let newWorkout = Workout(name: "Test \(workouts.count + 1)", wDescription: nil, exercises: [])
-                    
-                    modelContext.insert(newWorkout)
-                    
-                    showAddWorkoutSheet.toggle()
-                }
+                AddWorkoutView(showAddWorkoutSheet: $showAddWorkoutSheet)
             }
         }
     }

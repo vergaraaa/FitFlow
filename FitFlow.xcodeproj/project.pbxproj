@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AD51BA22B289872006EC3F1 /* AddWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */; };
 		1ACD418A2B2225EB002C92F6 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD41892B2225EB002C92F6 /* ExerciseDetailView.swift */; };
 		1ACD418C2B222E48002C92F6 /* RepTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD418B2B222E48002C92F6 /* RepTextModifier.swift */; };
 		1ACD418E2B222EC6002C92F6 /* TopStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD418D2B222EC6002C92F6 /* TopStatView.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutView.swift; sourceTree = "<group>"; };
 		1ACD41892B2225EB002C92F6 /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		1ACD418B2B222E48002C92F6 /* RepTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepTextModifier.swift; sourceTree = "<group>"; };
 		1ACD418D2B222EC6002C92F6 /* TopStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStatView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AD51B9F2B28985B006EC3F1 /* AddWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				0AD51BA02B289865006EC3F1 /* View */,
+			);
+			path = AddWorkout;
+			sourceTree = "<group>";
+		};
+		0AD51BA02B289865006EC3F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F05D98982B221C140085DE0A = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +170,7 @@
 		F0C2DBE12B27827F00C610A3 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0AD51B9F2B28985B006EC3F1 /* AddWorkout */,
 				F07FF6222B28795D00E23861 /* EditSet */,
 				F0C2DBF22B2788EA00C610A3 /* ExerciseDetail */,
 				F0C2DBE52B2782B100C610A3 /* Summary */,
@@ -326,6 +345,7 @@
 				F07FF61F2B28753200E23861 /* Exercise.swift in Sources */,
 				F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */,
 				F05D98A92B221C140085DE0A /* Item.swift in Sources */,
+				0AD51BA22B289872006EC3F1 /* AddWorkoutView.swift in Sources */,
 				1ACD41922B27142B002C92F6 /* RepRowView.swift in Sources */,
 				1ACD418C2B222E48002C92F6 /* RepTextModifier.swift in Sources */,
 				F0C2DBEF2B27889600C610A3 /* FitFlowApp.swift in Sources */,
