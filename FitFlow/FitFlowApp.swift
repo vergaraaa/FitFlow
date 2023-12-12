@@ -25,7 +25,8 @@ struct FitFlowApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            WorkautDetailView()
         }
         .modelContainer(sharedModelContainer)
     }

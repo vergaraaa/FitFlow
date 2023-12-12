@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CC284532B270E6000B1C160 /* WorkautDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC284522B270E6000B1C160 /* WorkautDetailView.swift */; };
 		F05D98A52B221C140085DE0A /* FitFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98A42B221C140085DE0A /* FitFlowApp.swift */; };
 		F05D98A72B221C140085DE0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98A62B221C140085DE0A /* ContentView.swift */; };
 		F05D98A92B221C140085DE0A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98A82B221C140085DE0A /* Item.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CC284522B270E6000B1C160 /* WorkautDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkautDetailView.swift; sourceTree = "<group>"; };
 		F05D98A12B221C140085DE0A /* FitFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05D98A42B221C140085DE0A /* FitFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitFlowApp.swift; sourceTree = "<group>"; };
 		F05D98A62B221C140085DE0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				F05D98A42B221C140085DE0A /* FitFlowApp.swift */,
 				F05D98A62B221C140085DE0A /* ContentView.swift */,
 				F05D98A82B221C140085DE0A /* Item.swift */,
+				1CC284522B270E6000B1C160 /* WorkautDetailView.swift */,
 				F05D98AA2B221C140085DE0A /* Assets.xcassets */,
 				F05D98AC2B221C140085DE0A /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F05D98A72B221C140085DE0A /* ContentView.swift in Sources */,
+				1CC284532B270E6000B1C160 /* WorkautDetailView.swift in Sources */,
 				F05D98A92B221C140085DE0A /* Item.swift in Sources */,
 				F05D98A52B221C140085DE0A /* FitFlowApp.swift in Sources */,
 			);
