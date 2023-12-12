@@ -34,6 +34,7 @@ struct SummaryView: View {
                             WorkoutRowView(name: workout.name)
                         }
                     }
+                    .onDelete(perform: deleteItem)
                 } header: {
                     HStack {
                         Text("Workouts")
@@ -52,6 +53,13 @@ struct SummaryView: View {
             .sheet(isPresented: $showAddWorkoutSheet) {
                 AddWorkoutView(showAddWorkoutSheet: $showAddWorkoutSheet)
             }
+        }
+    }
+    
+    func deleteItem(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let workout = workouts[index]
+            modelContext.delete(workout)
         }
     }
 }

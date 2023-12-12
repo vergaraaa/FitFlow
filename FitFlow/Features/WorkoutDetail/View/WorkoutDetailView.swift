@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct WorkoutDetailView: View {
+    @Environment(\.modelContext) var modelContext
     var workout: Workout
     
     @State private var showAddExerciseSheet = false
@@ -17,8 +18,12 @@ struct WorkoutDetailView: View {
         Form {
             Section {
                 ForEach(workout.excercises) { exercise in
-                    Text(exercise.name)
+                    NavigationLink(destination: ExerciseDetailView()) {
+                        Text(exercise.name)
+                    }
                 }
+                    .onDelete(perform: deleteItem)
+                
             } header: {
                 HStack {
                     Text("Exercises")
@@ -36,6 +41,13 @@ struct WorkoutDetailView: View {
         .navigationBarTitle(workout.name, displayMode: .inline)
         .sheet(isPresented: $showAddExerciseSheet) {
             AddExerciseView(workout: workout, showAddExerciseSheet: $showAddExerciseSheet)
+        }
+    }
+    
+    func deleteItem(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let exercise = workout.excercises[index]
+            modelContext.delete(exercise)
         }
     }
 }
