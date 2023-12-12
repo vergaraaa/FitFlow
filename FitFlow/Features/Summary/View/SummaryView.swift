@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SummaryView: View {
     
-    @State private var showAddWorkoutSheet = false
+    @Query private var workouts: [Workout]
+    @Environment(\.modelContext) private var modelContext
     
-    let workouts = ["Leg Day", "Chest Day", "Back Day", "Shoulders Day", "Arms Day"]
+    @State private var showAddWorkoutSheet = false
     
     var body: some View {
         NavigationStack {
@@ -20,16 +22,16 @@ struct SummaryView: View {
                     NavigationLink {
                         SummaryDetailView()
                     } label: {
-                        StatsView(exercises: 8, reps: 22, sets: 166, volume: 5)
+                        StatsView(exercises: 0, reps: 0, sets: 0, volume: 0)
                     }
                 }
                 
                 Section {
-                    ForEach(workouts, id: \.self) { workout in
+                    ForEach(workouts) { workout in
                         NavigationLink {
                             WorkoutDetailView()
                         } label: {
-                            WorkoutRowView(name: workout)
+                            WorkoutRowView(name: workout.name)
                         }
                     }
                 } header: {
@@ -48,7 +50,13 @@ struct SummaryView: View {
             }
             .navigationTitle("Summary")
             .sheet(isPresented: $showAddWorkoutSheet) {
-                Text("Add workout")
+                Button("Add workout") {
+                    let newWorkout = Workout(name: "Test \(workouts.count + 1)", wDescription: nil, exercises: [])
+                    
+                    modelContext.insert(newWorkout)
+                    
+                    showAddWorkoutSheet.toggle()
+                }
             }
         }
     }
@@ -56,4 +64,5 @@ struct SummaryView: View {
 
 #Preview {
     SummaryView()
+        .modelContainer(for: Workout.self, inMemory: true)
 }

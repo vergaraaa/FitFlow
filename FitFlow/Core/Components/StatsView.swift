@@ -26,7 +26,7 @@ struct StatsView: View {
             VStack(alignment: .leading, spacing: 15) {
                 StatsVStack(name: "Sets", value: "\(sets)", color: .red)
                 
-                StatsVStack(name: "Volume", value: "\(volume) kg", color: .orange)
+                StatsVStack(name: "Volume (kg)", value: "\(volume)", color: .orange)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
