@@ -28,7 +28,7 @@ struct ExerciseDetailView: View {
                     
                     HStack {
                         // Sets
-                        PreviousValueCell(
+                        PreviousSetCell(
                             color: .red,
                             totalValue: 0,
                             actualValue: 0,
@@ -40,7 +40,7 @@ struct ExerciseDetailView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
                         // Reps
-                        PreviousValueCell(
+                        PreviousSetCell(
                             color: .green,
                             totalValue: 0,
                             actualValue: 0,
@@ -54,7 +54,7 @@ struct ExerciseDetailView: View {
                     
                     HStack {
                         // Volume
-                        PreviousValueCell(
+                        PreviousSetCell(
                             color: .cyan,
                             totalValue: 0,
                             actualValue: 0,
@@ -66,7 +66,7 @@ struct ExerciseDetailView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
                         // Volume / reps
-                        PreviousValueCell(
+                        PreviousSetCell(
                             color: .orange,
                             totalValue: 0,
                             actualValue: 0,
@@ -150,85 +150,5 @@ struct ExerciseDetailView: View {
 #Preview {
     NavigationStack {
         ExerciseDetailView(exercise: Exercise(name: "", note: "", sets: []))
-    }
-}
-
-struct PreviousValueCell: View {
-    let color: Color
-    let totalValue: Double
-    let actualValue: Double
-    let title: String
-    let value: Double
-    let changedValue: Double
-    let changePercentage: Double
-    
-    var body: some View {
-        HStack {
-            VerticalProgressBar(color: color, total: totalValue, actual: actualValue)
-            
-            VStack(alignment: .leading) {
-                Text(title)
-                
-                Text(Formatters.decimal.string(from: NSNumber(value: value)) ?? "")
-                
-                HStack {
-                    Image(systemName: "triangle.fill")
-                        .font(.caption)
-                    
-                    Text("\(Formatters.decimal.string(from: NSNumber(value: changedValue)) ?? "") (\(Formatters.decimal.string(from: NSNumber(value: changePercentage)) ?? "")%)")
-                }
-                
-            }
-        }
-    }
-}
-
-struct VerticalProgressBar: View {
-    let color: Color
-    let total: Double
-    let actual: Double
-    
-    var body: some View {
-        VStack {
-            ZStack(alignment: .bottom) {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(color.opacity(0.5))
-                    .frame(width: 10, height: 70)
-                
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(color)
-                    .frame(width: 10, height: 40)
-            }
-        }
-        .frame(width: 10)
-    }
-}
-
-struct SetRow: View {
-    var body: some View {
-        HStack {
-            Text("14:57")
-            
-            Spacer()
-            
-            Group {
-                Text("6")
-                    .bold()
-                    .font(.title3)
-                +
-                Text(" rep")
-            }
-            .foregroundStyle(.green)
-            .padding(.horizontal)
-            
-            Group {
-                Text("10")
-                    .bold()
-                    .font(.title3)
-                +
-                Text(" kg")
-            }
-            .foregroundStyle(.orange)
-        }
     }
 }
