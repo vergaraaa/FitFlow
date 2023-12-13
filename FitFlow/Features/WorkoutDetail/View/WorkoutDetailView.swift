@@ -56,7 +56,7 @@ struct WorkoutDetailView: View {
             AddExerciseView(workout: workout, showAddExerciseSheet: $showAddExerciseSheet)
         }
         .sheet(item: $selectedExercise) { selectedExercise in
-            AddSetView(exercise: $selectedExercise)
+            AddSetView(exercise: selectedExercise)
         }
     }
     

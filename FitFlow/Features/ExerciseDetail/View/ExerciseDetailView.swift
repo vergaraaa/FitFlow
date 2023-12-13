@@ -13,7 +13,9 @@ struct ExerciseDetailView: View {
     let x = [0, 1, 2, 3, 4]
     let y = [0, 1, 2, 3, 4]
     
-    let exercise: Exercise
+    var exercise: Exercise
+    
+    @State private var showAddSetSheet: Bool = false
     
     @Environment(\.modelContext) private var modelContext
     
@@ -185,6 +187,18 @@ struct ExerciseDetailView: View {
         }
         .navigationTitle(exercise.name)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showAddSetSheet.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
+        .sheet(isPresented: $showAddSetSheet) {
+            AddSetView(exercise: exercise)
+        }
     }
     
     private func dateComponents(from date: Date?) -> (year: Int, month: Int, day: Int)? {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddSetView: View {
-    @Binding var exercise: Exercise?
+    var exercise: Exercise?
     
     @State var reps: Int = 0
     @State var weight: Double = 0.0
@@ -19,6 +19,8 @@ struct AddSetView: View {
     @Environment(\.colorScheme) var colorScheme
     
     @Environment(\.modelContext) private var modelContext
+    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
@@ -125,11 +127,11 @@ struct AddSetView: View {
                 }
                 
                 Button("Record") {
-                    let newSet = Set(reps: reps, weight: weight, date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
+                    let newSet = Set(reps: reps, weight: weight, date: Date())
                     
                     exercise!.sets.append(newSet)
                     
-                    exercise = nil
+                    dismiss()
                 }
                 .frame(maxWidth: .infinity)
             }
@@ -143,7 +145,7 @@ struct AddSetView: View {
     @Environment(\.colorScheme) var colorScheme
     
     return AddSetView(
-        exercise: .constant(Exercise(name: "", note: "", sets: [])),
+        exercise: Exercise(name: "", note: "", sets: []),
         colorScheme: _colorScheme
     )
 }
