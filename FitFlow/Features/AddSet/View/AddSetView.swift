@@ -125,7 +125,7 @@ struct AddSetView: View {
                 }
                 
                 Button("Record") {
-                    let newSet = Set(reps: reps, weight: weight, date: Date())
+                    let newSet = Set(reps: reps, weight: weight, date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!)
                     
                     exercise!.sets.append(newSet)
                     

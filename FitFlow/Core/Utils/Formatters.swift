@@ -25,4 +25,12 @@ struct Formatters {
         
         return formatter
     } ()
+    
+    static let stringFromDate: DateFormatter = {
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "EEEE, MMM d, yyyy"
+        
+        return formatter
+    } ()
 }
