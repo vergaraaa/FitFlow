@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AD51BA22B289872006EC3F1 /* AddWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */; };
 		1ACD418A2B2225EB002C92F6 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD41892B2225EB002C92F6 /* ExerciseDetailView.swift */; };
 		1ACD418C2B222E48002C92F6 /* RepTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD418B2B222E48002C92F6 /* RepTextModifier.swift */; };
 		1ACD418E2B222EC6002C92F6 /* TopStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD418D2B222EC6002C92F6 /* TopStatView.swift */; };
@@ -22,6 +23,7 @@
 		F05D98AE2B221C140085DE0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05D98AD2B221C140085DE0A /* Preview Assets.xcassets */; };
 		F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98B42B2224E00085DE0A /* SummaryView.swift */; };
 		F07FF61F2B28753200E23861 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07FF61E2B28753200E23861 /* Exercise.swift */; };
+		F0B3A22D2B28ADC600E4364E /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B3A22C2B28ADC600E4364E /* AddExerciseView.swift */; };
 		F0C2DBE92B27832E00C610A3 /* StatsVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBE82B27832E00C610A3 /* StatsVStack.swift */; };
 		F0C2DBEB2B27836100C610A3 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBEA2B27836100C610A3 /* StatsView.swift */; };
 		F0C2DBED2B27839C00C610A3 /* WorkoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBEC2B27839C00C610A3 /* WorkoutRowView.swift */; };
@@ -33,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutView.swift; sourceTree = "<group>"; };
 		1ACD41892B2225EB002C92F6 /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		1ACD418B2B222E48002C92F6 /* RepTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepTextModifier.swift; sourceTree = "<group>"; };
 		1ACD418D2B222EC6002C92F6 /* TopStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStatView.swift; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 		F05D98AD2B221C140085DE0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F05D98B42B2224E00085DE0A /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		F07FF61E2B28753200E23861 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		F0B3A22C2B28ADC600E4364E /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 		F0C2DBE82B27832E00C610A3 /* StatsVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVStack.swift; sourceTree = "<group>"; };
 		F0C2DBEA2B27836100C610A3 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		F0C2DBEC2B27839C00C610A3 /* WorkoutRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRowView.swift; sourceTree = "<group>"; };
@@ -69,6 +73,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AD51B9F2B28985B006EC3F1 /* AddWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				0AD51BA02B289865006EC3F1 /* View */,
+			);
+			path = AddWorkout;
+			sourceTree = "<group>";
+		};
+		0AD51BA02B289865006EC3F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F05D98982B221C140085DE0A = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +157,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F0B3A22A2B28AAA600E4364E /* AddExercise */ = {
+			isa = PBXGroup;
+			children = (
+				F0B3A22B2B28AABB00E4364E /* View */,
+			);
+			path = AddExercise;
+			sourceTree = "<group>";
+		};
+		F0B3A22B2B28AABB00E4364E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F0B3A22C2B28ADC600E4364E /* AddExerciseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F0C2DBE02B27827800C610A3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +188,8 @@
 		F0C2DBE12B27827F00C610A3 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0AD51B9F2B28985B006EC3F1 /* AddWorkout */,
+				F0B3A22A2B28AAA600E4364E /* AddExercise */,
 				F07FF6222B28795D00E23861 /* EditSet */,
 				F0C2DBF22B2788EA00C610A3 /* ExerciseDetail */,
 				F0C2DBE52B2782B100C610A3 /* Summary */,
@@ -320,12 +358,14 @@
 				F0C2DBF12B2788AB00C610A3 /* ContentView.swift in Sources */,
 				F0C2DBF92B27922B00C610A3 /* Workout.swift in Sources */,
 				1ACD418A2B2225EB002C92F6 /* ExerciseDetailView.swift in Sources */,
+				F0B3A22D2B28ADC600E4364E /* AddExerciseView.swift in Sources */,
 				1ACD41902B271368002C92F6 /* RepsListView.swift in Sources */,
 				F03BFC132B27178A006FE46A /* SummaryDetailView.swift in Sources */,
 				F0C2DBFD2B27947C00C610A3 /* Set.swift in Sources */,
 				F07FF61F2B28753200E23861 /* Exercise.swift in Sources */,
 				F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */,
 				F05D98A92B221C140085DE0A /* Item.swift in Sources */,
+				0AD51BA22B289872006EC3F1 /* AddWorkoutView.swift in Sources */,
 				1ACD41922B27142B002C92F6 /* RepRowView.swift in Sources */,
 				1ACD418C2B222E48002C92F6 /* RepTextModifier.swift in Sources */,
 				F0C2DBEF2B27889600C610A3 /* FitFlowApp.swift in Sources */,

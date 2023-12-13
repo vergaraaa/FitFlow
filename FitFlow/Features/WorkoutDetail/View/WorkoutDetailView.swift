@@ -9,78 +9,51 @@ import SwiftUI
 import SwiftData
 
 struct WorkoutDetailView: View {
-    @Environment(\.modelContext) private var modelContext
-//    @State private var exercises: [Exercise]
-//    @Query private var workouts: [Workout]
-//    @State private var currentFolderName: String = "New folder"
-    @State private var newSet = ""
-    @State private var newName = ""
-    @State private var newNote = ""
-    
+    @Environment(\.modelContext) var modelContext
     var workout: Workout
+    
+    @State private var showAddExerciseSheet = false
     
     var body: some View {
         
         Form {
             Section {
                 ForEach(workout.excercises) { exercise in
-                    Text(exercise.name)
+                    NavigationLink(destination: ExerciseDetailView()) {
+                        Text(exercise.name)
+                    }
                 }
-             .onDelete(perform: deleteItems)
-
+                    .onDelete(perform: deleteItem)
+                
             } header: {
                 HStack {
                     Text("Exercises")
-
+                    
                     Spacer()
-
+                    
                     Button {
-                     addItem()
+                        showAddExerciseSheet.toggle()
                     } label: {
                         Image(systemName: "plus")
                     }
                 }
             }
-            
-            TextField("Add a new exercise...", text: $newName)
-            
         }
         .navigationBarTitle(workout.name, displayMode: .inline)
-        
-        
+        .sheet(isPresented: $showAddExerciseSheet) {
+            AddExerciseView(workout: workout, showAddExerciseSheet: $showAddExerciseSheet)
+        }
     }
     
-        func addItem() {
-                withAnimation {
-                    let newExercise = Exercise(name: newName, note: newNote, sets: [])
-//                    modelContext.insert(newExercise)
-                    workout.excercises.append(newExercise)
-                    newName = ""
-                    newSet = ""
-            }
+    func deleteItem(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let exercise = workout.excercises[index]
+            modelContext.delete(exercise)
         }
-    
-        private func deleteItems(offsets: IndexSet) {
-            withAnimation {
-                for index in offsets {
-                    modelContext.delete(workout.excercises[index])
-                }
-            }
-        }
+    }
 }
 
 
-
-//#Preview {
-//    WorkoutDetailView(
-//        workout: Workout(
-//            name: "Test Workout",
-//            wDescription: "Test workout description",
-//            exercises: [
-//                Exercise(name: "Exercise 1", note: "", sets: [])
-//            ]
-//        )
-//    )
-//    .modelContainer(for: Workout.self, inMemory: true)
-//    .modelContainer(for: Exercise.self, inMemory: true)
-//}
+#Preview {
+    WorkoutDetailView(workout: Workout(name: "", wDescription: "", exercises: [ ]))
+}
