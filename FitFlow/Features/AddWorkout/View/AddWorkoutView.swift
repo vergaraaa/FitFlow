@@ -16,6 +16,10 @@ struct AddWorkoutView: View {
     
     @Environment(\.modelContext) private var modelContext
     
+    private var valid: Bool {
+        return !name.isEmpty
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -63,7 +67,7 @@ struct AddWorkoutView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") {
-                        var newWorkout = Workout(
+                        let newWorkout = Workout(
                             name: name,
                             wDescription: description,
                             exercises: []
@@ -73,6 +77,7 @@ struct AddWorkoutView: View {
                         
                         showAddWorkoutSheet.toggle()
                     }
+                    .disabled(!valid)
                     .bold()
                 }
             }
