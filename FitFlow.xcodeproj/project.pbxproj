@@ -17,6 +17,8 @@
 		1CC284532B270E6000B1C160 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC284522B270E6000B1C160 /* WorkoutDetailView.swift */; };
 		DF5EAAE42B279A83000FE22D /* EditSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5EAAE32B279A83000FE22D /* EditSetView.swift */; };
 		F03BFC132B27178A006FE46A /* SummaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03BFC122B27178A006FE46A /* SummaryDetailView.swift */; };
+		F05D38712B29B54C00EAEC45 /* AddSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D38702B29B54C00EAEC45 /* AddSetView.swift */; };
+		F05D38742B29BBBC00EAEC45 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D38732B29BBBC00EAEC45 /* Formatters.swift */; };
 		F05D98A72B221C140085DE0A /* (null) in Sources */ = {isa = PBXBuildFile; };
 		F05D98A92B221C140085DE0A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98A82B221C140085DE0A /* Item.swift */; };
 		F05D98AB2B221C140085DE0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05D98AA2B221C140085DE0A /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		1CC284522B270E6000B1C160 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
 		DF5EAAE32B279A83000FE22D /* EditSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSetView.swift; sourceTree = "<group>"; };
 		F03BFC122B27178A006FE46A /* SummaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailView.swift; sourceTree = "<group>"; };
+		F05D38702B29B54C00EAEC45 /* AddSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetView.swift; sourceTree = "<group>"; };
+		F05D38732B29BBBC00EAEC45 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		F05D98A12B221C140085DE0A /* FitFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05D98A82B221C140085DE0A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F05D98AA2B221C140085DE0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +91,30 @@
 				0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F05D386E2B29B53F00EAEC45 /* AddSet */ = {
+			isa = PBXGroup;
+			children = (
+				F05D386F2B29B54500EAEC45 /* View */,
+			);
+			path = AddSet;
+			sourceTree = "<group>";
+		};
+		F05D386F2B29B54500EAEC45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F05D38702B29B54C00EAEC45 /* AddSetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F05D38722B29BBA300EAEC45 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F05D38732B29BBBC00EAEC45 /* Formatters.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F05D98982B221C140085DE0A = {
@@ -181,6 +209,7 @@
 				F0C2DBF72B27921B00C610A3 /* Models */,
 				F0C2DBF32B2788F900C610A3 /* Modifiers */,
 				F0C2DBE32B27828E00C610A3 /* Root */,
+				F05D38722B29BBA300EAEC45 /* Utils */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -190,6 +219,7 @@
 			children = (
 				0AD51B9F2B28985B006EC3F1 /* AddWorkout */,
 				F0B3A22A2B28AAA600E4364E /* AddExercise */,
+				F05D386E2B29B53F00EAEC45 /* AddSet */,
 				F07FF6222B28795D00E23861 /* EditSet */,
 				F0C2DBF22B2788EA00C610A3 /* ExerciseDetail */,
 				F0C2DBE52B2782B100C610A3 /* Summary */,
@@ -353,6 +383,7 @@
 				DF5EAAE42B279A83000FE22D /* EditSetView.swift in Sources */,
 				F05D98A72B221C140085DE0A /* (null) in Sources */,
 				1CC284532B270E6000B1C160 /* WorkoutDetailView.swift in Sources */,
+				F05D38742B29BBBC00EAEC45 /* Formatters.swift in Sources */,
 				1ACD41942B272F54002C92F6 /* PieChartView.swift in Sources */,
 				1ACD418E2B222EC6002C92F6 /* TopStatView.swift in Sources */,
 				F0C2DBF12B2788AB00C610A3 /* ContentView.swift in Sources */,
@@ -361,6 +392,7 @@
 				F0B3A22D2B28ADC600E4364E /* AddExerciseView.swift in Sources */,
 				1ACD41902B271368002C92F6 /* RepsListView.swift in Sources */,
 				F03BFC132B27178A006FE46A /* SummaryDetailView.swift in Sources */,
+				F05D38712B29B54C00EAEC45 /* AddSetView.swift in Sources */,
 				F0C2DBFD2B27947C00C610A3 /* Set.swift in Sources */,
 				F07FF61F2B28753200E23861 /* Exercise.swift in Sources */,
 				F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */,
