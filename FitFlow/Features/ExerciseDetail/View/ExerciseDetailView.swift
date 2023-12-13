@@ -7,6 +7,7 @@
 
 import Charts
 import SwiftUI
+import SwiftData
 
 struct ExerciseDetailView: View {
     let x = [0, 1, 2, 3, 4]
@@ -84,25 +85,25 @@ struct ExerciseDetailView: View {
                 }
                 
                 // Newest reps
-                ForEach(0 ..< 3) { i in
-                    NavigationLink {
-                        EditSetView()
-                    } label: {
-                        SetRow()
-                    }
-                }
+//                ForEach(0 ..< 3) { i in
+//                    NavigationLink {
+//                        EditSetView()
+//                    } label: {
+//                        SetRow()
+//                    }
+//                }
                 
                 
             }
             
             // History of Reps
-            ForEach(0 ..< 5) { i in
+            ForEach(0 ..< 1) { i in
                 Section("Wed, 15 Nov 2023") {
-                    ForEach(0 ..< 3) { j in
+                    ForEach(exercise.sets) { set in
                         NavigationLink {
                             EditSetView()
                         } label: {
-                            SetRow()
+                            SetRow(set: set)
                         }
 
                     }

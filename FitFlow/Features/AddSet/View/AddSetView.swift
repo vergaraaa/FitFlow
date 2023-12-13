@@ -18,6 +18,8 @@ struct AddSetView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
+    @Environment(\.modelContext) private var modelContext
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -123,6 +125,10 @@ struct AddSetView: View {
                 }
                 
                 Button("Record") {
+                    let newSet = Set(reps: reps, weight: weight, date: Date())
+                    
+                    exercise!.sets.append(newSet)
+                    
                     exercise = nil
                 }
                 .frame(maxWidth: .infinity)

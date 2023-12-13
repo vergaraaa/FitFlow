@@ -17,4 +17,12 @@ struct Formatters {
         
         return formatter
     }()
+    
+    static let hourFromDate: DateFormatter = {
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "HH:mm"
+        
+        return formatter
+    } ()
 }

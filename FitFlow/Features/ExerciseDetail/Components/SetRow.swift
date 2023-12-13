@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct SetRow: View {
+    var set: Set
+    
     var body: some View {
         HStack {
-            Text("14:57")
+            Text("\(Formatters.hourFromDate.string(from: set.date))")
             
             Spacer()
             
             Group {
-                Text("6")
+                Text("\(set.reps)")
                     .bold()
                     .font(.title3)
                 +
@@ -25,7 +27,7 @@ struct SetRow: View {
             .padding(.horizontal)
             
             Group {
-                Text("10")
+                Text("\(Formatters.decimal.string(from: NSNumber(value: set.weight)) ?? "")")
                     .bold()
                     .font(.title3)
                 +
@@ -37,5 +39,5 @@ struct SetRow: View {
 }
 
 #Preview {
-    SetRow()
+    SetRow(set: Set(reps: 0, weight: 0, date: Date()))
 }
