@@ -148,10 +148,16 @@ struct ExerciseDetailView: View {
                                 EditSetView()
                             } label: {
                                 SetRow(set: set)
+                                    .swipeActions(edge: .leading) {
+                                        Button {
+                                            duplicateSet(set)
+                                        } label: {
+                                            Image(systemName: "repeat")
+                                        }
+                                        .tint(.blue)
+                                    }
                             }
                         }
-                        
-                        
                     }
                     
                     ForEach(1 ..< sortedMapOfSets.count, id: \.self) { index in
@@ -163,6 +169,14 @@ struct ExerciseDetailView: View {
                                     EditSetView()
                                 } label: {
                                     SetRow(set: set)
+                                        .swipeActions(edge: .leading) {
+                                            Button {
+                                                duplicateSet(set)
+                                            } label: {
+                                                Image(systemName: "repeat")
+                                            }
+                                            .tint(.blue)
+                                        }
                                 }
                             }
                         }
@@ -170,7 +184,7 @@ struct ExerciseDetailView: View {
                 }
             }
             else {
-                ForEach(0 ..< 1) { index in
+                ForEach(0 ..< sortedMapOfSets.count, id: \.self) { index in
                     let (date, sets) = sortedMapOfSets[index]
                     
                     Section("\(Formatters.stringFromDate.string(from: date))") {
@@ -179,6 +193,14 @@ struct ExerciseDetailView: View {
                                 EditSetView()
                             } label: {
                                 SetRow(set: set)
+                                    .swipeActions(edge: .leading) {
+                                        Button {
+                                            duplicateSet(set)
+                                        } label: {
+                                            Image(systemName: "repeat")
+                                        }
+                                        .tint(.blue)
+                                    }
                             }
                         }
                     }
@@ -199,6 +221,14 @@ struct ExerciseDetailView: View {
         .sheet(isPresented: $showAddSetSheet) {
             AddSetView(exercise: exercise)
         }
+    }
+    
+    private func duplicateSet(_ set: Set) {
+        exercise.sets.append(Set(
+            reps: set.reps,
+            weight: set.weight,
+            date: Date()
+        ))
     }
     
     private func dateComponents(from date: Date?) -> (year: Int, month: Int, day: Int)? {
