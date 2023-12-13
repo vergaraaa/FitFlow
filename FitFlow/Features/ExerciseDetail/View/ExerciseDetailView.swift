@@ -35,7 +35,8 @@ struct ExerciseDetailView: View {
                             title: "Sets",
                             value: 3,
                             changedValue: 0,
-                            changePercentage: 0
+                            changePercentage: 0,
+                            valueIncremented: nil
                         )
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
@@ -47,7 +48,8 @@ struct ExerciseDetailView: View {
                             title: "Reps",
                             value: 14,
                             changedValue: 4,
-                            changePercentage: 22.2
+                            changePercentage: 22.2,
+                            valueIncremented: true
                         )
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
@@ -61,7 +63,8 @@ struct ExerciseDetailView: View {
                             title: "Volume (kg)",
                             value: 60,
                             changedValue: 30,
-                            changePercentage: 100
+                            changePercentage: 100,
+                            valueIncremented: false
                         )
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
@@ -73,7 +76,8 @@ struct ExerciseDetailView: View {
                             title: "kg/rep",
                             value: 4.29,
                             changedValue: 2.6,
-                            changePercentage: 157.1
+                            changePercentage: 157.1,
+                            valueIncremented: nil
                         )
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
