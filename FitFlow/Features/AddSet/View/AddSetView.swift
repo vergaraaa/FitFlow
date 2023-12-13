@@ -75,7 +75,7 @@ struct AddSetView: View {
                     HStack {
                         Spacer()
                         
-                        Text("\(Formatters.weightFormatter.string(from: NSNumber(value: weight)) ?? "") kg")
+                        Text("\(Formatters.decimal.string(from: NSNumber(value: weight)) ?? "") kg")
                             .font(.title3)
                             .bold()
                             .foregroundStyle(.orange)
@@ -88,7 +88,7 @@ struct AddSetView: View {
                         Text("-")
                         
                         ForEach(weightIncrements.reversed(), id: \.self) { increment in
-                            Button("\(Formatters.weightFormatter.string(from: NSNumber(value: increment)) ?? "")") {
+                            Button("\(Formatters.decimal.string(from: NSNumber(value: increment)) ?? "")") {
                                 if(weight - increment < 0) {
                                     weight = 0
                                 }
@@ -107,7 +107,7 @@ struct AddSetView: View {
                         Spacer()
                         
                         ForEach(weightIncrements, id: \.self) { increment in
-                            Button("\(Formatters.weightFormatter.string(from: NSNumber(value: increment)) ?? "")") {
+                            Button("\(Formatters.decimal.string(from: NSNumber(value: increment)) ?? "")") {
                                 weight += increment
                             }
                             .padding(.horizontal, 10)

@@ -21,7 +21,9 @@ struct WorkoutDetailView: View {
         Form {
             Section {
                 ForEach(workout.excercises) { exercise in
-                    NavigationLink(destination: ExerciseDetailView()) {
+                    NavigationLink {
+                        ExerciseDetailView(exercise: exercise)
+                    } label: {
                         Text(exercise.name)
                             .swipeActions(edge: .leading) {
                                 Button {

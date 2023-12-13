@@ -8,7 +8,7 @@
 import Foundation
 
 struct Formatters {
-    static let weightFormatter: NumberFormatter = {
+    static let decimal: NumberFormatter = {
         let formatter = NumberFormatter()
         
         formatter.minimumFractionDigits = 0
