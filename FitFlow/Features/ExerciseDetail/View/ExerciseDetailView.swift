@@ -32,7 +32,7 @@ struct ExerciseDetailView: View {
             }
             
             return exercise == self.exercise ? set : nil
-        }
+        }.sorted(by: { $0.date > $1.date })
     }
     
     private var mapOfSets: [Date: [Set]] {
@@ -61,148 +61,39 @@ struct ExerciseDetailView: View {
         return dictionary
     }
     
-    var sortedMapOfSets: [(key: Date, value: [Set])] {
-        mapOfSets.sorted(by: { $0.key > $1.key })
-    }
-    
-    var mostRecentSets: (key: Date, value: [Set])? {
-        return sortedMapOfSets.first ?? nil
-    }
-    
-    
     var body: some View {
-        List {
-            if(sortedMapOfSets.count > 1) {
-                if let mostRecentSets = mostRecentSets {
-                    let (date, sets) = mostRecentSets
-                    
-                    Section(Formatters.stringFromDate.string(from: date)) {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Image(systemName: "arrow.left.arrow.right")
-                                
-                                Text("Compared to previous")
-                            }
-                            .font(.footnote)
-                            .foregroundStyle(.gray)
-                            
-                            HStack {
-                                // Sets
-                                PreviousSetCell(
-                                    color: .red,
-                                    totalValue: 0,
-                                    actualValue: 0,
-                                    title: "Sets",
-                                    value: 3,
-                                    changedValue: 0,
-                                    changePercentage: 0,
-                                    valueIncremented: nil
-                                )
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                                // Reps
-                                PreviousSetCell(
-                                    color: .green,
-                                    totalValue: 0,
-                                    actualValue: 0,
-                                    title: "Reps",
-                                    value: 14,
-                                    changedValue: 4,
-                                    changePercentage: 22.2,
-                                    valueIncremented: true
-                                )
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                            
-                            HStack {
-                                // Volume
-                                PreviousSetCell(
-                                    color: .cyan,
-                                    totalValue: 0,
-                                    actualValue: 0,
-                                    title: "Volume (kg)",
-                                    value: 60,
-                                    changedValue: 30,
-                                    changePercentage: 100,
-                                    valueIncremented: false
-                                )
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                                // Volume / reps
-                                PreviousSetCell(
-                                    color: .orange,
-                                    totalValue: 0,
-                                    actualValue: 0,
-                                    title: "kg/rep",
-                                    value: 4.29,
-                                    changedValue: 2.6,
-                                    changePercentage: 157.1,
-                                    valueIncremented: nil
-                                )
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                        }
-                        
-                        ForEach(sets.sorted(by: {$0.date > $1.date })) { set in
-                            NavigationLink {
-                                EditSetView()
-                            } label: {
-                                SetRow(set: set)
-                                    .swipeActions(edge: .leading) {
-                                        Button {
-                                            duplicateSet(set)
-                                        } label: {
-                                            Image(systemName: "repeat")
-                                        }
-                                        .tint(.blue)
-                                    }
-                            }
-                        }
-                    }
-                    
-                    ForEach(1 ..< sortedMapOfSets.count, id: \.self) { index in
-                        let (date, sets) = sortedMapOfSets[index]
-                        
-                        Section("\(Formatters.stringFromDate.string(from: date))") {
-                            ForEach(sets.sorted(by: {$0.date > $1.date })) { set in
-                                NavigationLink {
-                                    EditSetView()
-                                } label: {
-                                    SetRow(set: set)
-                                        .swipeActions(edge: .leading) {
-                                            Button {
-                                                duplicateSet(set)
-                                            } label: {
-                                                Image(systemName: "repeat")
-                                            }
-                                            .tint(.blue)
-                                        }
-                                }
-                            }
-                        }
-                    }
-                }
+        Group {
+            if(Array(mapOfSets.keys).isEmpty) {
+                ContentUnavailableView("No sets yet!", systemImage: "dumbbell")
             }
             else {
-                ForEach(0 ..< sortedMapOfSets.count, id: \.self) { index in
-                    let (date, sets) = sortedMapOfSets[index]
-                    
-                    Section("\(Formatters.stringFromDate.string(from: date))") {
-                        ForEach(sets.sorted(by: {$0.date > $1.date })) { set in
-                            NavigationLink {
-                                EditSetView()
-                            } label: {
-                                SetRow(set: set)
-                                    .swipeActions(edge: .leading) {
-                                        Button {
-                                            duplicateSet(set)
-                                        } label: {
-                                            Image(systemName: "repeat")
-                                        }
-                                        .tint(.blue)
-                                    }
+                List {
+                    if(mapOfSets.keys.count > 1) {
+                        var sortedMapByKeys = mapOfSets.sorted(by: { $0.key > $1.key })
+                        
+                        let (date, setss) = sortedMapByKeys.first!
+                        
+                        Section(Formatters.stringFromDate.string(from: date)) {
+                            ComparisonView(title: "Compared to previous", sets: setss)
+                            
+                            SetsListView(exercise: exercise, sets: setss)
+                        }
+                        
+                        ForEach(1 ..< sortedMapByKeys.count, id: \.self) { index in
+                            let (date, sets) = sortedMapByKeys[index]
+                            
+                            Section("\(Formatters.stringFromDate.string(from: date))") {
+                                SetsListView(exercise: exercise, sets: sets)
                             }
                         }
+                    }
+                    else {
+                        ForEach(Array(mapOfSets.keys), id: \.self) { key in
+                            Section("\(Formatters.stringFromDate.string(from: key))") {
+                                SetsListView(exercise: exercise, sets: mapOfSets[key] ?? [])
+                            }
+                        }
+                        
                     }
                 }
             }
@@ -221,14 +112,6 @@ struct ExerciseDetailView: View {
         .sheet(isPresented: $showAddSetSheet) {
             AddSetView(exercise: exercise)
         }
-    }
-    
-    private func duplicateSet(_ set: Set) {
-        exercise.sets.append(Set(
-            reps: set.reps,
-            weight: set.weight,
-            date: Date()
-        ))
     }
     
     private func dateComponents(from date: Date?) -> (year: Int, month: Int, day: Int)? {
