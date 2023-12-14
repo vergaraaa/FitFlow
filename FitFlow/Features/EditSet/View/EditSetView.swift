@@ -16,6 +16,8 @@ struct EditSetView: View {
     
     @Environment (\.dismiss) var dismiss
     
+    @Environment(\.modelContext) var modelContext
+    
     init(set: Set) {
         self.set = set
         self._reps = State(wrappedValue: set.reps)
@@ -56,6 +58,21 @@ struct EditSetView: View {
                     DatePicker("Date", selection: $date, in: ...Date.now)
                 } footer: {
                     Text("Exact Time: \(timeFormatter.string(from: set.date))")
+                }
+                
+                Section {
+                    Button {
+                        modelContext.delete(set)
+                        
+                        dismiss()
+                    } label: {
+                        HStack {
+                            Text("Delete")
+                            Spacer()
+                            Image(systemName: "trash")
+                        }
+                        .foregroundStyle(.red)
+                    }
                 }
             }
             .navigationTitle("Edit Set")
