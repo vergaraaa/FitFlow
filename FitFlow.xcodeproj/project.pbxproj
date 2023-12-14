@@ -17,12 +17,19 @@
 		1CC284532B270E6000B1C160 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC284522B270E6000B1C160 /* WorkoutDetailView.swift */; };
 		DF5EAAE42B279A83000FE22D /* EditSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5EAAE32B279A83000FE22D /* EditSetView.swift */; };
 		F03BFC132B27178A006FE46A /* SummaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03BFC122B27178A006FE46A /* SummaryDetailView.swift */; };
+		F0524D4C2B2A32DA00F0E766 /* ComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0524D4B2B2A32DA00F0E766 /* ComparisonView.swift */; };
+		F0524D4E2B2A331400F0E766 /* SetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0524D4D2B2A331400F0E766 /* SetsListView.swift */; };
+		F05D38712B29B54C00EAEC45 /* AddSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D38702B29B54C00EAEC45 /* AddSetView.swift */; };
+		F05D38742B29BBBC00EAEC45 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D38732B29BBBC00EAEC45 /* Formatters.swift */; };
 		F05D98A72B221C140085DE0A /* (null) in Sources */ = {isa = PBXBuildFile; };
 		F05D98A92B221C140085DE0A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98A82B221C140085DE0A /* Item.swift */; };
 		F05D98AB2B221C140085DE0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05D98AA2B221C140085DE0A /* Assets.xcassets */; };
 		F05D98AE2B221C140085DE0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05D98AD2B221C140085DE0A /* Preview Assets.xcassets */; };
 		F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D98B42B2224E00085DE0A /* SummaryView.swift */; };
 		F07FF61F2B28753200E23861 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07FF61E2B28753200E23861 /* Exercise.swift */; };
+		F09C38232B29EB7900D12086 /* SetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09C38222B29EB7900D12086 /* SetRow.swift */; };
+		F09C38252B29EB9C00D12086 /* VerticalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09C38242B29EB9C00D12086 /* VerticalProgressView.swift */; };
+		F09C38272B29EBD800D12086 /* PreviousSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09C38262B29EBD800D12086 /* PreviousSetCell.swift */; };
 		F0B3A22D2B28ADC600E4364E /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B3A22C2B28ADC600E4364E /* AddExerciseView.swift */; };
 		F0C2DBE92B27832E00C610A3 /* StatsVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBE82B27832E00C610A3 /* StatsVStack.swift */; };
 		F0C2DBEB2B27836100C610A3 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBEA2B27836100C610A3 /* StatsView.swift */; };
@@ -45,12 +52,19 @@
 		1CC284522B270E6000B1C160 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
 		DF5EAAE32B279A83000FE22D /* EditSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSetView.swift; sourceTree = "<group>"; };
 		F03BFC122B27178A006FE46A /* SummaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailView.swift; sourceTree = "<group>"; };
+		F0524D4B2B2A32DA00F0E766 /* ComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonView.swift; sourceTree = "<group>"; };
+		F0524D4D2B2A331400F0E766 /* SetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsListView.swift; sourceTree = "<group>"; };
+		F05D38702B29B54C00EAEC45 /* AddSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetView.swift; sourceTree = "<group>"; };
+		F05D38732B29BBBC00EAEC45 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		F05D98A12B221C140085DE0A /* FitFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05D98A82B221C140085DE0A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F05D98AA2B221C140085DE0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F05D98AD2B221C140085DE0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F05D98B42B2224E00085DE0A /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		F07FF61E2B28753200E23861 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		F09C38222B29EB7900D12086 /* SetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRow.swift; sourceTree = "<group>"; };
+		F09C38242B29EB9C00D12086 /* VerticalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalProgressView.swift; sourceTree = "<group>"; };
+		F09C38262B29EBD800D12086 /* PreviousSetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousSetCell.swift; sourceTree = "<group>"; };
 		F0B3A22C2B28ADC600E4364E /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 		F0C2DBE82B27832E00C610A3 /* StatsVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVStack.swift; sourceTree = "<group>"; };
 		F0C2DBEA2B27836100C610A3 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -87,6 +101,30 @@
 				0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F05D386E2B29B53F00EAEC45 /* AddSet */ = {
+			isa = PBXGroup;
+			children = (
+				F05D386F2B29B54500EAEC45 /* View */,
+			);
+			path = AddSet;
+			sourceTree = "<group>";
+		};
+		F05D386F2B29B54500EAEC45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F05D38702B29B54C00EAEC45 /* AddSetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F05D38722B29BBA300EAEC45 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F05D38732B29BBBC00EAEC45 /* Formatters.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F05D98982B221C140085DE0A = {
@@ -157,6 +195,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F09C38212B29EB6A00D12086 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F09C38262B29EBD800D12086 /* PreviousSetCell.swift */,
+				F09C38222B29EB7900D12086 /* SetRow.swift */,
+				F09C38242B29EB9C00D12086 /* VerticalProgressView.swift */,
+				F0524D4B2B2A32DA00F0E766 /* ComparisonView.swift */,
+				F0524D4D2B2A331400F0E766 /* SetsListView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F0B3A22A2B28AAA600E4364E /* AddExercise */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +231,7 @@
 				F0C2DBF72B27921B00C610A3 /* Models */,
 				F0C2DBF32B2788F900C610A3 /* Modifiers */,
 				F0C2DBE32B27828E00C610A3 /* Root */,
+				F05D38722B29BBA300EAEC45 /* Utils */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -190,6 +241,7 @@
 			children = (
 				0AD51B9F2B28985B006EC3F1 /* AddWorkout */,
 				F0B3A22A2B28AAA600E4364E /* AddExercise */,
+				F05D386E2B29B53F00EAEC45 /* AddSet */,
 				F07FF6222B28795D00E23861 /* EditSet */,
 				F0C2DBF22B2788EA00C610A3 /* ExerciseDetail */,
 				F0C2DBE52B2782B100C610A3 /* Summary */,
@@ -244,6 +296,7 @@
 		F0C2DBF22B2788EA00C610A3 /* ExerciseDetail */ = {
 			isa = PBXGroup;
 			children = (
+				F09C38212B29EB6A00D12086 /* Components */,
 				F0C2DBF62B27894B00C610A3 /* View */,
 			);
 			path = ExerciseDetail;
@@ -351,8 +404,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF5EAAE42B279A83000FE22D /* EditSetView.swift in Sources */,
+				F0524D4E2B2A331400F0E766 /* SetsListView.swift in Sources */,
 				F05D98A72B221C140085DE0A /* (null) in Sources */,
 				1CC284532B270E6000B1C160 /* WorkoutDetailView.swift in Sources */,
+				F09C38252B29EB9C00D12086 /* VerticalProgressView.swift in Sources */,
+				F05D38742B29BBBC00EAEC45 /* Formatters.swift in Sources */,
 				1ACD41942B272F54002C92F6 /* PieChartView.swift in Sources */,
 				1ACD418E2B222EC6002C92F6 /* TopStatView.swift in Sources */,
 				F0C2DBF12B2788AB00C610A3 /* ContentView.swift in Sources */,
@@ -361,6 +417,8 @@
 				F0B3A22D2B28ADC600E4364E /* AddExerciseView.swift in Sources */,
 				1ACD41902B271368002C92F6 /* RepsListView.swift in Sources */,
 				F03BFC132B27178A006FE46A /* SummaryDetailView.swift in Sources */,
+				F09C38272B29EBD800D12086 /* PreviousSetCell.swift in Sources */,
+				F05D38712B29B54C00EAEC45 /* AddSetView.swift in Sources */,
 				F0C2DBFD2B27947C00C610A3 /* Set.swift in Sources */,
 				F07FF61F2B28753200E23861 /* Exercise.swift in Sources */,
 				F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */,
@@ -370,7 +428,9 @@
 				1ACD418C2B222E48002C92F6 /* RepTextModifier.swift in Sources */,
 				F0C2DBEF2B27889600C610A3 /* FitFlowApp.swift in Sources */,
 				F0C2DBED2B27839C00C610A3 /* WorkoutRowView.swift in Sources */,
+				F0524D4C2B2A32DA00F0E766 /* ComparisonView.swift in Sources */,
 				F0C2DBF52B27890C00C610A3 /* TopTextModifier.swift in Sources */,
+				F09C38232B29EB7900D12086 /* SetRow.swift in Sources */,
 				F0C2DBEB2B27836100C610A3 /* StatsView.swift in Sources */,
 				F0C2DBE92B27832E00C610A3 /* StatsVStack.swift in Sources */,
 			);

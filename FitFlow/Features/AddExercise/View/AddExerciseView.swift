@@ -18,6 +18,10 @@ struct AddExerciseView: View {
     
     @Environment(\.modelContext) private var modelContext
     
+    private var valid: Bool {
+        return !name.isEmpty
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -70,6 +74,7 @@ struct AddExerciseView: View {
                         showAddExerciseSheet.toggle()
                     }
                     .bold()
+                    .disabled(!valid)
                 }
             }
         }

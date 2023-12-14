@@ -13,17 +13,30 @@ struct WorkoutDetailView: View {
     var workout: Workout
     
     @State private var showAddExerciseSheet = false
+    @State private var showAddSetSheet = false
+    
+    @State var selectedExercise: Exercise?
     
     var body: some View {
         
         Form {
             Section {
                 ForEach(workout.excercises) { exercise in
-                    NavigationLink(destination: ExerciseDetailView()) {
+                    NavigationLink {
+                        ExerciseDetailView(exercise: exercise)
+                    } label: {
                         Text(exercise.name)
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    selectedExercise = exercise
+                                } label: {
+                                    Text("Record")
+                                }
+                                .tint(.blue)
+                            }
                     }
                 }
-                    .onDelete(perform: deleteItem)
+                .onDelete(perform: deleteItem)
                 
             } header: {
                 HStack {
@@ -42,6 +55,9 @@ struct WorkoutDetailView: View {
         .navigationBarTitle(workout.name, displayMode: .inline)
         .sheet(isPresented: $showAddExerciseSheet) {
             AddExerciseView(workout: workout, showAddExerciseSheet: $showAddExerciseSheet)
+        }
+        .sheet(item: $selectedExercise) { selectedExercise in
+            AddSetView(exercise: selectedExercise)
         }
     }
     
