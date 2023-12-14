@@ -130,12 +130,20 @@ struct AddSetView: View {
                     }
                 }
                 
-                Button("Record") {
+                Button {
                     let newSet = Set(reps: reps, weight: weight, date: Date())
                     
                     exercise!.sets.append(newSet)
                     
                     dismiss()
+                } label: {
+                    HStack {
+                        Text("Record")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "text.badge.plus")
+                    }
                 }
                 .frame(maxWidth: .infinity)
                 .disabled(!valid)
