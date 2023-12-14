@@ -22,6 +22,10 @@ struct AddSetView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    var valid: Bool {
+        return reps != 0
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -134,6 +138,7 @@ struct AddSetView: View {
                     dismiss()
                 }
                 .frame(maxWidth: .infinity)
+                .disabled(!valid)
             }
             .navigationTitle(exercise?.name ?? "")
             .navigationBarTitleDisplayMode(.inline)

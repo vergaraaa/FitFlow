@@ -31,6 +31,10 @@ struct EditSetView: View {
         return formatter
     }
     
+    var valid: Bool {
+        return reps != 0
+    }
+    
     var body: some View {
         NavigationStack {
             List {
@@ -86,6 +90,7 @@ struct EditSetView: View {
                         
                         dismiss()
                     }
+                    .disabled(!valid)
                 }
             }
         }
