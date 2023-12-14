@@ -32,10 +32,12 @@ struct LineChart: View {
             }
             
             return exercise == self.exercise ? set : nil
-        }.sorted(by: { $0.date < $1.date })
+        }
         
+
         
-        return filtered
+        // only get seven
+        return Array(filtered.prefix(7))
     }
     
     private var chartDataDictionary: [Date: Int] {
@@ -46,6 +48,7 @@ struct LineChart: View {
             
             return exercise == self.exercise ? set : nil
         }
+        .sorted(by: { $0.date < $1.date })
         
         let dictionary: [Date: Int] = filtered.reduce(into: [:]) { result, set in
             guard let dateComponents = dateComponents(from: set.date) else {
@@ -70,7 +73,12 @@ struct LineChart: View {
     
     var body: some View {
         Chart {
-            ForEach(Array(chartDataDictionary.keys.sorted(by: { $0 < $1 })), id: \.self) { key in
+            ForEach(Array(
+                chartDataDictionary.keys.sorted(by: { $0 < $1 })
+                    .suffix(7)
+            ),
+                id: \.self) { key in
+                
                 LineMark(
                     x: .value("", "\(key)"),
                     y: .value("", chartDataDictionary[key]!)
