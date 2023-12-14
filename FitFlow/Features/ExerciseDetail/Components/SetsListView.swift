@@ -15,7 +15,7 @@ struct SetsListView: View {
     
     var body: some View {
         ForEach(sets.sorted(by: { $0.date > $1.date })) { set in
-            NavigationLink(destination: EditSetView()) {
+            NavigationLink(destination: EditSetView(set: set)) {
                 SetRow(set: set)
                     .swipeActions(edge: .leading) {
                         Button(action: {

@@ -69,7 +69,7 @@ struct ExerciseDetailView: View {
             else {
                 List {
                     if(mapOfSets.keys.count > 1) {
-                        var sortedMapByKeys = mapOfSets.sorted(by: { $0.key > $1.key })
+                        let sortedMapByKeys = mapOfSets.sorted(by: { $0.key > $1.key })
                         
                         let (date, setss) = sortedMapByKeys.first!
                         
