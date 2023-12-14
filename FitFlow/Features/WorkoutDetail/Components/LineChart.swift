@@ -25,21 +25,6 @@ struct LineChart: View {
         ]
     ) var sets: [Set]
     
-    private var filteredSets: [Set] {
-        let filtered: [Set] = sets.compactMap { set in
-            guard let exercise = set.exercise else {
-                return nil
-            }
-            
-            return exercise == self.exercise ? set : nil
-        }
-        
-
-        
-        // only get seven
-        return Array(filtered.prefix(7))
-    }
-    
     private var chartDataDictionary: [Date: Int] {
         let filtered: [Set] = sets.compactMap { set in
             guard let exercise = set.exercise else {
