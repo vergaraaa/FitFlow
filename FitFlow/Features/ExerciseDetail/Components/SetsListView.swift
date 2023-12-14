@@ -14,7 +14,7 @@ struct SetsListView: View {
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
-        ForEach(sets.sorted(by: { $0.date > $1.date })) { set in
+        ForEach(sets.sorted(by: { $0.date < $1.date })) { set in
             NavigationLink(destination: EditSetView(set: set)) {
                 SetRow(set: set)
                     .swipeActions(edge: .leading) {
