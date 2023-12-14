@@ -24,15 +24,21 @@ struct WorkoutDetailView: View {
                     NavigationLink {
                         ExerciseDetailView(exercise: exercise)
                     } label: {
-                        Text(exercise.name)
-                            .swipeActions(edge: .leading) {
-                                Button {
-                                    selectedExercise = exercise
-                                } label: {
-                                    Text("Record")
-                                }
-                                .tint(.blue)
+                        HStack {
+                            Text(exercise.name)
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        selectedExercise = exercise
+                                    } label: {
+                                        Text("Record")
+                                    }
+                                    .tint(.blue)
                             }
+                            
+                            Spacer()
+                            
+                            LineChart(exercise: exercise)
+                        }
                     }
                 }
                 .onDelete(perform: deleteItem)

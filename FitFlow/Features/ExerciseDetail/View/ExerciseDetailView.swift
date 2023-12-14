@@ -114,7 +114,7 @@ struct ExerciseDetailView: View {
         }
     }
     
-    private func dateComponents(from date: Date?) -> (year: Int, month: Int, day: Int)? {
+    func dateComponents(from date: Date?) -> (year: Int, month: Int, day: Int)? {
         guard let date = date else {
             return nil
         }
