@@ -7,10 +7,12 @@
 
 import SwiftUI
 import SwiftData
+import TipKit
 
 struct WorkoutDetailView: View {
     @Environment(\.modelContext) var modelContext
     var workout: Workout
+    var recordTip = RecordTip()
     
     @State private var showAddExerciseSheet = false
     @State private var showAddSetSheet = false
@@ -33,7 +35,13 @@ struct WorkoutDetailView: View {
                                     Text("Record")
                                 }
                                 .tint(.blue)
+                                
+                                
                             }
+                            .popoverTip(recordTip)
+                            .onTapGesture {
+                                    recordTip.invalidate(reason: .actionPerformed)
+                                }
                     }
                 }
                 .onDelete(perform: deleteItem)
@@ -49,8 +57,11 @@ struct WorkoutDetailView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
+                    
                 }
             }
+            
+            
         }
         .navigationBarTitle(workout.name, displayMode: .inline)
         .sheet(isPresented: $showAddExerciseSheet) {
@@ -67,6 +78,8 @@ struct WorkoutDetailView: View {
             modelContext.delete(exercise)
         }
     }
+    
+    
 }
 
 

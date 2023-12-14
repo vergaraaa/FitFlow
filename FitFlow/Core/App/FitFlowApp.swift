@@ -7,6 +7,8 @@
 
 import SwiftUI
 import SwiftData
+import TipKit
+
 
 @main
 struct FitFlowApp: App {
@@ -25,11 +27,26 @@ struct FitFlowApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    
+
+    
+    init() {
+        do {
+          try Tips.configure()
+        } catch {
+          print("Failed to configure TipKit: \(error)")
+        }
+      }
+    
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+            
         }
         .modelContainer(sharedModelContainer)
     }
+    
+    
 }
