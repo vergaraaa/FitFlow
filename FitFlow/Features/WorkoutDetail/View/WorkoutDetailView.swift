@@ -36,16 +36,16 @@ struct WorkoutDetailView: View {
                                         Text("Record")
                                     }
                                     .tint(.blue)
-                            }
+                                }
                             
                             Spacer()
                             
                             LineChart(exercise: exercise)
                         }
-                            .popoverTip(recordTip)
-                            .onTapGesture {
-                                recordTip.invalidate(reason: .actionPerformed)
-                                }
+                        .popoverTip(recordTip)
+                        .onTapGesture {
+                            recordTip.invalidate(reason: .actionPerformed)
+                        }
                     }
                 }
                 .onDelete(perform: deleteItem)
@@ -77,10 +77,10 @@ struct WorkoutDetailView: View {
         }
         .onAppear {
             if !workout.excercises.isEmpty {
-            RecordTip.workoutDetailViewDidOpen.sendDonation() }
+                RecordTip.workoutDetailViewDidOpen.sendDonation() }
         }
     }
-        
+    
     
     func deleteItem(_ indexSet: IndexSet) {
         for index in indexSet {
@@ -89,7 +89,7 @@ struct WorkoutDetailView: View {
         }
     }
     
-} 
+}
 
 
 
