@@ -31,20 +31,16 @@ struct WorkoutDetailView: View {
                             .swipeActions(edge: .leading) {
                                 Button {
                                     selectedExercise = exercise
+                                    recordTip.invalidate(reason: .actionPerformed)
                                 } label: {
                                     Text("Record")
                                 }
                                 .tint(.blue)
                             }
-                            .popoverTip(recordTip)
-                            .onTapGesture {
-                                recordTip.invalidate(reason: .actionPerformed)
-                                }
                     }
+                    .popoverTip(recordTip)
                 }
                 .onDelete(perform: deleteItem)
-                
-                
             } header: {
                 HStack {
                     Text("Exercises")
@@ -56,11 +52,8 @@ struct WorkoutDetailView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-                    
                 }
             }
-            
-            
         }
         .navigationBarTitle(workout.name, displayMode: .inline)
         .sheet(isPresented: $showAddExerciseSheet) {
@@ -71,10 +64,10 @@ struct WorkoutDetailView: View {
         }
         .onAppear {
             if !workout.excercises.isEmpty {
-            RecordTip.workoutDetailViewDidOpen.sendDonation() }
+                RecordTip.workoutDetailViewDidOpen.sendDonation() }
         }
     }
-        
+    
     
     func deleteItem(_ indexSet: IndexSet) {
         for index in indexSet {
@@ -83,7 +76,7 @@ struct WorkoutDetailView: View {
         }
     }
     
-} 
+}
 
 
 
