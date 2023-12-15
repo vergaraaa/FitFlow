@@ -7,10 +7,12 @@
 
 import SwiftUI
 import SwiftData
+import TipKit
 
 struct WorkoutDetailView: View {
     @Environment(\.modelContext) var modelContext
     var workout: Workout
+    let recordTip = RecordTip()
     
     @State private var showAddExerciseSheet = false
     @State private var showAddSetSheet = false
@@ -18,6 +20,7 @@ struct WorkoutDetailView: View {
     @State var selectedExercise: Exercise?
     
     var body: some View {
+        
         Form {
             Section {
                 ForEach(workout.excercises) { exercise in
@@ -39,9 +42,14 @@ struct WorkoutDetailView: View {
                             
                             LineChart(exercise: exercise)
                         }
+                            .popoverTip(recordTip)
+                            .onTapGesture {
+                                recordTip.invalidate(reason: .actionPerformed)
+                                }
                     }
                 }
                 .onDelete(perform: deleteItem)
+                
                 
             } header: {
                 HStack {
@@ -54,8 +62,11 @@ struct WorkoutDetailView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
+                    
                 }
             }
+            
+            
         }
         .navigationBarTitle(workout.name, displayMode: .inline)
         .sheet(isPresented: $showAddExerciseSheet) {
@@ -64,7 +75,12 @@ struct WorkoutDetailView: View {
         .sheet(item: $selectedExercise) { selectedExercise in
             AddSetView(exercise: selectedExercise)
         }
+        .onAppear {
+            if !workout.excercises.isEmpty {
+            RecordTip.workoutDetailViewDidOpen.sendDonation() }
+        }
     }
+        
     
     func deleteItem(_ indexSet: IndexSet) {
         for index in indexSet {
@@ -72,7 +88,9 @@ struct WorkoutDetailView: View {
             modelContext.delete(exercise)
         }
     }
-}
+    
+} 
+
 
 
 #Preview {

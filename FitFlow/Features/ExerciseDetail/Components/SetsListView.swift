@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct SetsListView: View {
     let exercise: Exercise
     let sets: [Set]
+    let duplicateTip = DuplicateTip()
     
     @Environment(\.modelContext) var modelContext
     
@@ -25,9 +27,17 @@ struct SetsListView: View {
                         }
                         .tint(.blue)
                     }
+                    .popoverTip(duplicateTip)
+                    .onTapGesture {
+                        duplicateTip.invalidate(reason: .actionPerformed)
+                    }
             }
         }
         .onDelete(perform: deleteItem)
+        .onAppear {
+            if !sets.isEmpty {
+            DuplicateTip.setsListViewDidOpen.sendDonation() }
+        }
     }
     
     private func duplicateSet(_ set: Set) {

@@ -15,6 +15,7 @@ struct ExerciseDetailView: View {
     
     var exercise: Exercise
     
+    
     @State private var showAddSetSheet: Bool = false
     
     @Environment(\.modelContext) private var modelContext
@@ -82,6 +83,7 @@ struct ExerciseDetailView: View {
                             ComparisonView(title: "Compared to previous", sets: setss)
                             
                             SetsListView(exercise: exercise, sets: setss)
+                                
                         }
                         
                         ForEach(1 ..< sortedMapByKeys.count, id: \.self) { index in
