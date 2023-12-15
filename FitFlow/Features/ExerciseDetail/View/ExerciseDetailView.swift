@@ -69,12 +69,11 @@ struct ExerciseDetailView: View {
             }
             else {
                 List {
-                    Section("Progress") {
-                        ProgressChartView(exercise: exercise)
-                    }
-                    
-                    
                     if(mapOfSets.keys.count > 1) {
+                        Section("Progress") {
+                            ProgressChartView(exercise: exercise)
+                        }
+                        
                         let sortedMapByKeys = mapOfSets.sorted(by: { $0.key > $1.key })
                         
                         let (date, setss) = sortedMapByKeys.first!
