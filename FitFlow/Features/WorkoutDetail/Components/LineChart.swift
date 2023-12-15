@@ -18,15 +18,8 @@ struct LineChartData: Identifiable {
 struct LineChart: View {
     let exercise: Exercise
     
-    @Environment(\.modelContext) var modelContext
-    @Query(
-        sort: [
-            SortDescriptor(\Set.date, order: .forward)
-        ]
-    ) var sets: [Set]
-    
     private var chartDataDictionary: [Date: Int] {
-        let filtered: [Set] = sets.compactMap { set in
+        let filtered: [Set] = exercise.sets.compactMap { set in
             guard let exercise = set.exercise else {
                 return nil
             }
@@ -36,7 +29,7 @@ struct LineChart: View {
         .sorted(by: { $0.date < $1.date })
         
         let dictionary: [Date: Int] = filtered.reduce(into: [:]) { result, set in
-            guard let dateComponents = dateComponents(from: set.date) else {
+            guard let dateComponents = Functions.dateComponents(from: set.date) else {
                 return
             }
             
@@ -50,10 +43,6 @@ struct LineChart: View {
         }
         
         return dictionary
-    }
-    
-    private var indexes: [Int] {
-        return Array(0...chartDataDictionary.keys.count)
     }
     
     var body: some View {
@@ -79,15 +68,6 @@ struct LineChart: View {
         .chartYAxis(.hidden)
         .chartXAxis(.hidden)
         .frame(width: 100, height: 40)
-    }
-    
-    func dateComponents(from date: Date?) -> (year: Int, month: Int, day: Int)? {
-        guard let date = date else {
-            return nil
-        }
-        
-        let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
-        return (components.year ?? 0, components.month ?? 0, components.day ?? 0)
     }
 }
 

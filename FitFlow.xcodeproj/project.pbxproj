@@ -40,6 +40,8 @@
 		F0C2DBF92B27922B00C610A3 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBF82B27922B00C610A3 /* Workout.swift */; };
 		F0C2DBFD2B27947C00C610A3 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBFC2B27947C00C610A3 /* Set.swift */; };
 		F0FDF4962B2B7ED1002C88F1 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4952B2B7ED1002C88F1 /* LineChart.swift */; };
+		F0FDF4982B2C53C9002C88F1 /* ProgressChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4972B2C53C9002C88F1 /* ProgressChartView.swift */; };
+		F0FDF49A2B2C54C1002C88F1 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4992B2C54C1002C88F1 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		F0C2DBF82B27922B00C610A3 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		F0C2DBFC2B27947C00C610A3 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		F0FDF4952B2B7ED1002C88F1 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		F0FDF4972B2C53C9002C88F1 /* ProgressChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChartView.swift; sourceTree = "<group>"; };
+		F0FDF4992B2C54C1002C88F1 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				F05D38732B29BBBC00EAEC45 /* Formatters.swift */,
+				F0FDF4992B2C54C1002C88F1 /* Functions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				F09C38242B29EB9C00D12086 /* VerticalProgressView.swift */,
 				F0524D4B2B2A32DA00F0E766 /* ComparisonView.swift */,
 				F0524D4D2B2A331400F0E766 /* SetsListView.swift */,
+				F0FDF4972B2C53C9002C88F1 /* ProgressChartView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -434,11 +440,13 @@
 				F0C2DBFD2B27947C00C610A3 /* Set.swift in Sources */,
 				F07FF61F2B28753200E23861 /* Exercise.swift in Sources */,
 				F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */,
+				F0FDF4982B2C53C9002C88F1 /* ProgressChartView.swift in Sources */,
 				F05D98A92B221C140085DE0A /* Item.swift in Sources */,
 				0AD51BA22B289872006EC3F1 /* AddWorkoutView.swift in Sources */,
 				1ACD41922B27142B002C92F6 /* RepRowView.swift in Sources */,
 				1ACD418C2B222E48002C92F6 /* RepTextModifier.swift in Sources */,
 				F0C2DBEF2B27889600C610A3 /* FitFlowApp.swift in Sources */,
+				F0FDF49A2B2C54C1002C88F1 /* Functions.swift in Sources */,
 				F0C2DBED2B27839C00C610A3 /* WorkoutRowView.swift in Sources */,
 				F0524D4C2B2A32DA00F0E766 /* ComparisonView.swift in Sources */,
 				F0C2DBF52B27890C00C610A3 /* TopTextModifier.swift in Sources */,
