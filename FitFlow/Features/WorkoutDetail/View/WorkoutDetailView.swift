@@ -12,7 +12,7 @@ import TipKit
 struct WorkoutDetailView: View {
     @Environment(\.modelContext) var modelContext
     var workout: Workout
-    var recordTip = RecordTip()
+    let recordTip = RecordTip()
     
     @State private var showAddExerciseSheet = false
     @State private var showAddSetSheet = false
@@ -35,16 +35,15 @@ struct WorkoutDetailView: View {
                                     Text("Record")
                                 }
                                 .tint(.blue)
-                                
-                                
                             }
                             .popoverTip(recordTip)
                             .onTapGesture {
-                                    recordTip.invalidate(reason: .actionPerformed)
+                                recordTip.invalidate(reason: .actionPerformed)
                                 }
                     }
                 }
                 .onDelete(perform: deleteItem)
+                
                 
             } header: {
                 HStack {
@@ -70,7 +69,12 @@ struct WorkoutDetailView: View {
         .sheet(item: $selectedExercise) { selectedExercise in
             AddSetView(exercise: selectedExercise)
         }
+        .onAppear {
+            if !workout.excercises.isEmpty {
+            RecordTip.workoutDetailViewDidOpen.sendDonation() }
+        }
     }
+        
     
     func deleteItem(_ indexSet: IndexSet) {
         for index in indexSet {
@@ -79,8 +83,8 @@ struct WorkoutDetailView: View {
         }
     }
     
-    
-}
+} 
+
 
 
 #Preview {
