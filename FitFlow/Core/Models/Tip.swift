@@ -18,6 +18,7 @@ struct RecordTip: Tip {
    
     var message: Text? {
         Text("Swipe right to record your sets")
+            .foregroundColor(.primary)
     }
     
     var options: [TipOption] {
@@ -45,6 +46,7 @@ struct DuplicateTip: Tip {
    
     var message: Text? {
         Text("Swipe right to duplicate your sets")
+            .foregroundColor(.primary)
     }
     
     var options: [TipOption] {
