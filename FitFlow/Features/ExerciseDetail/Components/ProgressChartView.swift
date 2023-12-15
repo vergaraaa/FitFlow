@@ -7,14 +7,21 @@
 
 import Charts
 import SwiftUI
+import SwiftData
 
 struct ProgressChartView: View {
     let exercise: Exercise
     
+    @Query(
+        sort: [
+            SortDescriptor(\Set.date, order: .reverse)
+        ]
+    ) var sets: [Set]
+    
     @State private var selectedIndex: String?
     
     private var repsDataDictionary: [Date: Int] {
-        let filtered: [Set] = exercise.sets.compactMap { set in
+        let filtered: [Set] = sets.compactMap { set in
             guard let exercise = set.exercise else {
                 return nil
             }

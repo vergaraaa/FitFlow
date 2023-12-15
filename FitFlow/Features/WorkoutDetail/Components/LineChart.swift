@@ -18,8 +18,14 @@ struct LineChartData: Identifiable {
 struct LineChart: View {
     let exercise: Exercise
     
+    @Query(
+        sort: [
+            SortDescriptor(\Set.date, order: .reverse)
+        ]
+    ) var sets: [Set]
+    
     private var chartDataDictionary: [Date: Int] {
-        let filtered: [Set] = exercise.sets.compactMap { set in
+        let filtered: [Set] = sets.compactMap { set in
             guard let exercise = set.exercise else {
                 return nil
             }
