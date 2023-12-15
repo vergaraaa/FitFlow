@@ -22,22 +22,22 @@ struct SetsListView: View {
                     .swipeActions(edge: .leading) {
                         Button(action: {
                             duplicateSet(set)
+                            duplicateTip.invalidate(reason: .actionPerformed)
                         }) {
                             Image(systemName: "repeat")
                         }
                         .tint(.blue)
                     }
                     .popoverTip(duplicateTip)
-                    .onTapGesture {
-                        duplicateTip.invalidate(reason: .actionPerformed)
-                    }
             }
+            
         }
         .onDelete(perform: deleteItem)
         .onAppear {
             if !sets.isEmpty {
             DuplicateTip.setsListViewDidOpen.sendDonation() }
         }
+       
     }
     
     private func duplicateSet(_ set: Set) {

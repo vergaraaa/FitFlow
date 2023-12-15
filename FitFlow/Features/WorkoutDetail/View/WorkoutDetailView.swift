@@ -32,6 +32,7 @@ struct WorkoutDetailView: View {
                                 .swipeActions(edge: .leading) {
                                     Button {
                                         selectedExercise = exercise
+                                        recordTip.invalidate(reason: .actionPerformed)
                                     } label: {
                                         Text("Record")
                                     }
@@ -43,14 +44,9 @@ struct WorkoutDetailView: View {
                             LineChart(exercise: exercise)
                         }
                         .popoverTip(recordTip)
-                        .onTapGesture {
-                            recordTip.invalidate(reason: .actionPerformed)
-                        }
                     }
                 }
                 .onDelete(perform: deleteItem)
-                
-                
             } header: {
                 HStack {
                     Text("Exercises")
@@ -62,11 +58,8 @@ struct WorkoutDetailView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
-                    
                 }
             }
-            
-            
         }
         .navigationBarTitle(workout.name, displayMode: .inline)
         .sheet(isPresented: $showAddExerciseSheet) {
