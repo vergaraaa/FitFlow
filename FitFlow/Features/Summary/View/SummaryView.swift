@@ -15,14 +15,31 @@ struct SummaryView: View {
     
     @State private var showAddWorkoutSheet = false
     
+    @Query(
+        sort: [
+            SortDescriptor(\Set.date, order: .reverse)
+        ]
+    ) var setsArray: [Set]
+    
+    private var dateSets: [Set] {
+        return setsArray.filter { set in
+            let setComponents = Functions.dateComponents(from: set.date)
+            let dateComponents = Functions.dateComponents(from: Date())
+            
+            return setComponents?.year == dateComponents?.year &&
+                setComponents?.month == dateComponents?.month &&
+                setComponents?.day == dateComponents?.day
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             List {
-                Section("Today's Stats") {
+                Section("Today's Activity") {
                     NavigationLink {
                         SummaryDetailView()
                     } label: {
-                        StatsView(exercises: 0, reps: 0, sets: 0, volume: 0)
+                        StatsView(dateSets: dateSets)
                     }
                 }
                 

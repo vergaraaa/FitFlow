@@ -6,48 +6,68 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SummaryDetailView: View {
+    
+    @State private var date = Date()
+    
+    @Query(
+        sort: [
+            SortDescriptor(\Set.date, order: .reverse)
+        ]
+    ) var sets: [Set]
+    
+    private var dateSets: [Set] {
+        return sets.filter { set in
+            let setComponents = Functions.dateComponents(from: set.date)
+            let dateComponents = Functions.dateComponents(from: date)
+            
+            return setComponents?.year == dateComponents?.year &&
+                setComponents?.month == dateComponents?.month &&
+                setComponents?.day == dateComponents?.day
+        }
+    }
+    
+    private var exercisesDict: [String: [Set]] {
+        var dictionary: [String: [Set]] = [:]
+        
+        dateSets.forEach { set in
+            if dictionary[set.exercise!.name] == nil {
+                dictionary[set.exercise!.name] = [set]
+            } else {
+                dictionary[set.exercise!.name]?.append(set)
+            }
+        }
+        
+        return dictionary
+    }
+    
+    
     var body: some View {
         List {
             Section("Date") {
-                HStack {
-                    Button {
-                        print("left")
-                    } label: {
-                        Image(systemName: "chevron.left.circle")
-                    }
-                    .buttonStyle(BorderlessButtonStyle())
-                    
-                    Spacer()
-                    
-                    Text("Today")
-                        .bold()
-                    
-                    Spacer()
-                    
-                    Button {
-                        print("right")
-                    } label: {
-                        Image(systemName: "chevron.right.circle")
-                    }
-                    .buttonStyle(BorderlessButtonStyle())
-                }
+                DatePicker("Date", selection: $date, in: ...Date.now, displayedComponents: .date)
+                    .datePickerStyle(.graphical)
             }
             
             Section("Stats") {
-                StatsView(exercises: 8, reps: 22, sets: 166, volume: 5)
+                StatsView(dateSets: dateSets)
             }
             
-            Section("Workout Details") {
-                ForEach(0 ..< 10, id: \.self) { i in
-                    VStack(alignment: .leading) {
-                        Text("Exercise name")
-                            .font(.title3)
-                            .bold()
-                        
-                        Text("Reps - Volume")
-                            .foregroundStyle(.gray)
+            if(!exercisesDict.isEmpty) {
+                Section("Workout Details") {
+                    ForEach(Array(exercisesDict.keys), id: \.self) { key in
+                        VStack(alignment: .leading) {
+                            Text(key)
+                                .font(.title3)
+                                .bold()
+                            
+                            ForEach(exercisesDict[key]!) { set in
+                                Text("\(set.reps) reps - \(Formatters.decimal.string(from: NSNumber(value: set.weight)) ?? "") kg")
+                                    .foregroundStyle(.gray)
+                            }
+                        }
                     }
                 }
             }

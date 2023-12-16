@@ -238,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				F0C2DBE22B27828800C610A3 /* App */,
-				F0C2DBE42B27829400C610A3 /* Components */,
 				F0C2DBF72B27921B00C610A3 /* Models */,
 				F0C2DBF32B2788F900C610A3 /* Modifiers */,
 				F0C2DBE32B27828E00C610A3 /* Root */,
@@ -290,6 +289,7 @@
 		F0C2DBE52B2782B100C610A3 /* Summary */ = {
 			isa = PBXGroup;
 			children = (
+				F0C2DBE42B27829400C610A3 /* Components */,
 				F0C2DBE72B2782BB00C610A3 /* View */,
 			);
 			path = Summary;
