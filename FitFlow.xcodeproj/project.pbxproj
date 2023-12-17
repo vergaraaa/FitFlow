@@ -10,10 +10,6 @@
 		0AD51BA22B289872006EC3F1 /* AddWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */; };
 		1ACD418A2B2225EB002C92F6 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD41892B2225EB002C92F6 /* ExerciseDetailView.swift */; };
 		1ACD418C2B222E48002C92F6 /* RepTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD418B2B222E48002C92F6 /* RepTextModifier.swift */; };
-		1ACD418E2B222EC6002C92F6 /* TopStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD418D2B222EC6002C92F6 /* TopStatView.swift */; };
-		1ACD41902B271368002C92F6 /* RepsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD418F2B271368002C92F6 /* RepsListView.swift */; };
-		1ACD41922B27142B002C92F6 /* RepRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD41912B27142B002C92F6 /* RepRowView.swift */; };
-		1ACD41942B272F54002C92F6 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD41932B272F54002C92F6 /* PieChartView.swift */; };
 		1C6600752B2B4FB700D03B46 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6600742B2B4FB700D03B46 /* Tip.swift */; };
 		1CC284532B270E6000B1C160 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC284522B270E6000B1C160 /* WorkoutDetailView.swift */; };
 		DF5EAAE42B279A83000FE22D /* EditSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5EAAE32B279A83000FE22D /* EditSetView.swift */; };
@@ -49,10 +45,6 @@
 		0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutView.swift; sourceTree = "<group>"; };
 		1ACD41892B2225EB002C92F6 /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		1ACD418B2B222E48002C92F6 /* RepTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepTextModifier.swift; sourceTree = "<group>"; };
-		1ACD418D2B222EC6002C92F6 /* TopStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStatView.swift; sourceTree = "<group>"; };
-		1ACD418F2B271368002C92F6 /* RepsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsListView.swift; sourceTree = "<group>"; };
-		1ACD41912B27142B002C92F6 /* RepRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepRowView.swift; sourceTree = "<group>"; };
-		1ACD41932B272F54002C92F6 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		1C6600742B2B4FB700D03B46 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		1CC284522B270E6000B1C160 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
 		DF5EAAE32B279A83000FE22D /* EditSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSetView.swift; sourceTree = "<group>"; };
@@ -325,10 +317,6 @@
 		F0C2DBF62B27894B00C610A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1ACD418D2B222EC6002C92F6 /* TopStatView.swift */,
-				1ACD418F2B271368002C92F6 /* RepsListView.swift */,
-				1ACD41912B27142B002C92F6 /* RepRowView.swift */,
-				1ACD41932B272F54002C92F6 /* PieChartView.swift */,
 				1ACD41892B2225EB002C92F6 /* ExerciseDetailView.swift */,
 			);
 			path = View;
@@ -429,15 +417,12 @@
 				1CC284532B270E6000B1C160 /* WorkoutDetailView.swift in Sources */,
 				F09C38252B29EB9C00D12086 /* VerticalProgressView.swift in Sources */,
 				F05D38742B29BBBC00EAEC45 /* Formatters.swift in Sources */,
-				1ACD41942B272F54002C92F6 /* PieChartView.swift in Sources */,
-				1ACD418E2B222EC6002C92F6 /* TopStatView.swift in Sources */,
 				1C6600752B2B4FB700D03B46 /* Tip.swift in Sources */,
 				F0C2DBF12B2788AB00C610A3 /* ContentView.swift in Sources */,
 				F0C2DBF92B27922B00C610A3 /* Workout.swift in Sources */,
 				1ACD418A2B2225EB002C92F6 /* ExerciseDetailView.swift in Sources */,
 				F0FDF4962B2B7ED1002C88F1 /* LineChart.swift in Sources */,
 				F0B3A22D2B28ADC600E4364E /* AddExerciseView.swift in Sources */,
-				1ACD41902B271368002C92F6 /* RepsListView.swift in Sources */,
 				F03BFC132B27178A006FE46A /* SummaryDetailView.swift in Sources */,
 				F09C38272B29EBD800D12086 /* PreviousSetCell.swift in Sources */,
 				F05D38712B29B54C00EAEC45 /* AddSetView.swift in Sources */,
@@ -447,7 +432,6 @@
 				F0FDF4982B2C53C9002C88F1 /* ProgressChartView.swift in Sources */,
 				F05D98A92B221C140085DE0A /* Item.swift in Sources */,
 				0AD51BA22B289872006EC3F1 /* AddWorkoutView.swift in Sources */,
-				1ACD41922B27142B002C92F6 /* RepRowView.swift in Sources */,
 				1ACD418C2B222E48002C92F6 /* RepTextModifier.swift in Sources */,
 				F0C2DBEF2B27889600C610A3 /* FitFlowApp.swift in Sources */,
 				F0FDF49A2B2C54C1002C88F1 /* Functions.swift in Sources */,

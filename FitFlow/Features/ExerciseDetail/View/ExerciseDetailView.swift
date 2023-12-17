@@ -76,13 +76,16 @@ struct ExerciseDetailView: View {
                         
                         let sortedMapByKeys = mapOfSets.sorted(by: { $0.key > $1.key })
                         
-                        let (date, setss) = sortedMapByKeys.first!
+                        let (date, currentSets) = sortedMapByKeys[0]
+                        let (_, previousSets) = sortedMapByKeys[1]
                         
                         Section(Formatters.stringFromDate.string(from: date)) {
-                            ComparisonView(title: "Compared to previous", sets: setss)
+                            ComparisonView(
+                                currentSets: currentSets,
+                                previousSets: previousSets
+                            )
                             
-                            SetsListView(exercise: exercise, sets: setss)
-                                
+                            SetsListView(exercise: exercise, sets: currentSets)
                         }
                         
                         ForEach(1 ..< sortedMapByKeys.count, id: \.self) { index in

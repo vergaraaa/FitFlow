@@ -63,10 +63,11 @@ struct LineChart: View {
                     x: .value("", "\(key)"),
                     y: .value("", chartDataDictionary[key]!)
                 )
+                .foregroundStyle(.green)
                 .interpolationMethod(.catmullRom)
                 .symbol {
                     Circle()
-                        .fill(.blue)
+                        .fill(.green)
                         .frame(width: 5)
                 }
             }

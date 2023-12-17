@@ -8,66 +8,109 @@
 import SwiftUI
 
 struct ComparisonView: View {
-    let title: String
-    let sets: [Set]
+    let currentSets: [Set]
+    let previousSets: [Set]
+    
+    // Current Values
+    private var currentReps: Int {
+        var reps = 0
+        
+        currentSets.forEach { set in
+            reps += set.reps
+        }
+        
+        return reps
+    }
+    
+    private var currentSetsValue: Int {
+        return currentSets.count
+    }
+    
+    private var currentVolume: Double {
+        var weight = 0.0
+        
+        currentSets.forEach { set in
+            weight += (set.weight * Double(set.reps))
+        }
+        
+        return weight
+    }
+    
+    private var currentRepsVolume: Double {
+        return currentVolume / Double(currentReps)
+    }
+    
+    // Previous Values
+    private var previousReps: Int {
+        var reps = 0
+        
+        previousSets.forEach { set in
+            reps += set.reps
+        }
+        
+        return reps
+    }
+    
+    private var previousSetsValue: Int {
+        return previousSets.count
+    }
+    
+    private var previousVolume: Double {
+        var weight = 0.0
+        
+        previousSets.forEach { set in
+            weight += (set.weight * Double(set.reps))
+        }
+        
+        return weight
+    }
+    
+    private var previousRepsVolume: Double {
+        return previousVolume / Double(previousReps)
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Image(systemName: "arrow.left.arrow.right")
-                Text(title)
+                
+                Text("Compared to previous")
                     .font(.footnote)
                     .foregroundStyle(.gray)
             }
 
             HStack {
                 PreviousSetCell(
-                    color: .red,
-                    totalValue: 0,
-                    actualValue: 0,
                     title: "Sets",
-                    value: 3,
-                    changedValue: 0,
-                    changePercentage: 0,
-                    valueIncremented: nil
+                    color: .red,
+                    previousValue: Double(currentSetsValue),
+                    currentValue: Double(previousSetsValue)
                 )
                 .frame(maxWidth: .infinity, alignment: .leading)
 
                 PreviousSetCell(
-                    color: .green,
-                    totalValue: 0,
-                    actualValue: 0,
                     title: "Reps",
-                    value: 14,
-                    changedValue: 4,
-                    changePercentage: 22.2,
-                    valueIncremented: true
+                    color: .green,
+                    previousValue: Double(previousReps),
+                    currentValue: Double(currentReps)
                 )
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
 
             HStack {
                 PreviousSetCell(
-                    color: .cyan,
-                    totalValue: 0,
-                    actualValue: 0,
                     title: "Volume (kg)",
-                    value: 60,
-                    changedValue: 30,
-                    changePercentage: 100,
-                    valueIncremented: false
+                    color: .cyan,
+                    previousValue: previousVolume,
+                    currentValue: currentVolume
                 )
                 .frame(maxWidth: .infinity, alignment: .leading)
 
                 PreviousSetCell(
-                    color: .orange,
-                    totalValue: 0,
-                    actualValue: 0,
                     title: "kg/rep",
-                    value: 4.29,
-                    changedValue: 2.6,
-                    changePercentage: 157.1,
-                    valueIncremented: nil
+                    color: .orange,
+                    previousValue: previousRepsVolume,
+                    currentValue: currentRepsVolume
                 )
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -76,5 +119,5 @@ struct ComparisonView: View {
 }
 
 #Preview {
-    ComparisonView(title: "", sets: [])
+    ComparisonView(currentSets: [], previousSets: [])
 }

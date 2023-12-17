@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct PreviousSetCell: View {
-    let color: Color
-    let totalValue: Double
-    let actualValue: Double
     let title: String
-    let value: Double
-    let changedValue: Double
-    let changePercentage: Double
-    let valueIncremented: Bool?
+    let color: Color
+    let previousValue: Double
+    let currentValue: Double
+
+    private var changedValue: Double {
+        return currentValue - previousValue
+    }
+    
+    private var changedPercentage: Double {
+        return ((changedValue * 100) / previousValue)
+    }
     
     private var icon: String {
-        if valueIncremented == nil {
+        if changedValue == 0 {
             return "circle.fill"
         }
-        else if valueIncremented == true {
+        else if changedValue > 0 {
             return "triangle.fill"
         }
         else {
@@ -30,7 +34,7 @@ struct PreviousSetCell: View {
     }
     
     private var changedColor: Color {
-        if valueIncremented == true {
+        if changedValue > 0 {
             return .green
         }
         else {
@@ -38,14 +42,19 @@ struct PreviousSetCell: View {
         }
     }
     
+    private var valueIncremented : Bool {
+        return currentValue > previousValue
+    }
+    
     var body: some View {
         HStack {
-            VerticalProgressView(color: color, total: totalValue, actual: actualValue)
+            VerticalProgressView(color: color, previous: previousValue, current: currentValue, changedPercentage: changedPercentage)
             
             VStack(alignment: .leading) {
                 Text(title)
                 
-                Text(Formatters.decimal.string(from: NSNumber(value: value)) ?? "")
+                Text(Formatters.decimal.string(from: NSNumber(value: currentValue)) ?? "")
+                    .foregroundStyle(.secondary)
                 
                 HStack {
                     Image(systemName: icon)
@@ -54,24 +63,20 @@ struct PreviousSetCell: View {
                             valueIncremented == false ? 180 : 0))
                         .foregroundStyle(changedColor)
                     
-                    Text("\(Formatters.decimal.string(from: NSNumber(value: changedValue)) ?? "") (\(Formatters.decimal.string(from: NSNumber(value: changePercentage)) ?? "")%)")
+                    Text("\(Formatters.decimal.string(from: NSNumber(value: abs(changedValue))) ?? "") (\(Formatters.decimal.string(from: NSNumber(value: abs(changedPercentage))) ?? "")%)")
                         .foregroundStyle(changedColor)
                 }
-                
             }
+            .padding(.leading, 5)
         }
     }
 }
 
 #Preview {
     PreviousSetCell(
-        color: .red,
-        totalValue: 0,
-        actualValue: 0,
-        title: "Sets",
-        value: 3,
-        changedValue: 0,
-        changePercentage: 0,
-        valueIncremented: nil
+        title: "Reps",
+        color: .green,
+        previousValue: 0.0,
+        currentValue: 0.0
     )
 }
