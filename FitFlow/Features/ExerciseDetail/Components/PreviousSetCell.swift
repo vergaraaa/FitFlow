@@ -18,6 +18,8 @@ struct PreviousSetCell: View {
     }
     
     private var changedPercentage: Double {
+        guard previousValue != 0 else { return 0.0 }
+        
         return ((changedValue * 100) / previousValue)
     }
     

@@ -37,6 +37,8 @@ struct ComparisonView: View {
     }
     
     private var currentRepsVolume: Double {
+        guard currentReps != 0 else { return 0.0 }
+        
         return currentVolume / Double(currentReps)
     }
     
@@ -66,6 +68,8 @@ struct ComparisonView: View {
     }
     
     private var previousRepsVolume: Double {
+        guard previousReps != 0 else { return 0.0 }
+        
         return previousVolume / Double(previousReps)
     }
 
@@ -83,8 +87,8 @@ struct ComparisonView: View {
                 PreviousSetCell(
                     title: "Sets",
                     color: .red,
-                    previousValue: Double(currentSetsValue),
-                    currentValue: Double(previousSetsValue)
+                    previousValue: Double(previousSetsValue),
+                    currentValue: Double(currentSetsValue)
                 )
                 .frame(maxWidth: .infinity, alignment: .leading)
 
