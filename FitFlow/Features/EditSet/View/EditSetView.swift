@@ -18,6 +18,7 @@ struct EditSetView: View {
     
     @Environment(\.modelContext) var modelContext
     
+    
     init(set: Set) {
         self.set = set
         self._reps = State(wrappedValue: set.reps)
@@ -47,6 +48,7 @@ struct EditSetView: View {
                             .keyboardType(.numberPad)
                     }
                 }
+               
                 
                 Section {
                     HStack {

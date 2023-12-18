@@ -67,3 +67,33 @@ struct DuplicateTip: Tip {
         }
     }
 }
+
+
+struct EditTip: Tip {
+    var title: Text {
+        Text("Add or remove repetitions and weight")
+            .foregroundColor(.blue)
+    }
+    
+    var message: Text? {
+        Text("Press buttons to add or remove the appropriate number of repetitions and kg")
+            .foregroundColor(.primary)
+    }
+    
+    var options: [TipOption] {
+        MaxDisplayCount(5)
+    }
+    
+    var image: Image? {
+        Image(systemName: "plus.circle")
+    }
+    
+    static let addSetViewDidOpen = Tips.Event(id: "addSetViewDidOpen")
+    
+    var rules: [Rule] {
+        
+        #Rule(EditTip.addSetViewDidOpen) {
+            $0.donations.count >= 1
+        }
+    }
+}
