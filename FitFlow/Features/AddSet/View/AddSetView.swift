@@ -12,6 +12,7 @@ struct AddSetView: View {
     
     @State var reps: Int = 0
     @State var weight: Double = 0.0
+    @State var date: Date = Date()
     
     let repsIncrements: [Int] = [1, 5]
     let weightIncrements: [Double] = [0.1, 1, 5]
@@ -130,8 +131,12 @@ struct AddSetView: View {
                     }
                 }
                 
+                Section("Date") {
+                    DatePicker("", selection: $date)
+                }
+                
                 Button {
-                    let newSet = Set(reps: reps, weight: weight, date: Date())
+                    let newSet = Set(reps: reps, weight: weight, date: date)
                     
                     exercise!.sets.append(newSet)
                     
