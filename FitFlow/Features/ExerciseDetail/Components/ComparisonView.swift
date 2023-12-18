@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ComparisonView: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    
     let currentSets: [Set]
     let previousSets: [Set]
     
@@ -74,51 +76,99 @@ struct ComparisonView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Image(systemName: "arrow.left.arrow.right")
+        if dynamicTypeSize >= .accessibility2{
+            VStack(alignment: .leading) {
+                HStack {
+                    Image(systemName: "arrow.left.arrow.right")
+                    
+                    Text("Compared to previous")
+                        .font(.footnote)
+                        .foregroundStyle(.gray)
+                }
                 
-                Text("Compared to previous")
-                    .font(.footnote)
-                    .foregroundStyle(.gray)
-            }
-
-            HStack {
-                PreviousSetCell(
-                    title: "Sets",
-                    color: .red,
-                    previousValue: Double(previousSetsValue),
-                    currentValue: Double(currentSetsValue)
-                )
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-                PreviousSetCell(
-                    title: "Reps",
-                    color: .green,
-                    previousValue: Double(previousReps),
-                    currentValue: Double(currentReps)
-                )
-                .frame(maxWidth: .infinity, alignment: .leading)
-            }
-
-            HStack {
-                PreviousSetCell(
-                    title: "Volume (kg)",
-                    color: .cyan,
-                    previousValue: previousVolume,
-                    currentValue: currentVolume
-                )
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-                PreviousSetCell(
-                    title: "kg/rep",
-                    color: .orange,
-                    previousValue: previousRepsVolume,
-                    currentValue: currentRepsVolume
-                )
-                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                    PreviousSetCell(
+                        title: "Sets",
+                        color: .red,
+                        previousValue: Double(previousSetsValue),
+                        currentValue: Double(currentSetsValue)
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    PreviousSetCell(
+                        title: "Reps",
+                        color: .green,
+                        previousValue: Double(previousReps),
+                        currentValue: Double(currentReps)
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                    PreviousSetCell(
+                        title: "Volume (kg)",
+                        color: .cyan,
+                        previousValue: previousVolume,
+                        currentValue: currentVolume
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    PreviousSetCell(
+                        title: "kg/rep",
+                        color: .orange,
+                        previousValue: previousRepsVolume,
+                        currentValue: currentRepsVolume
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
             }
         }
+        else{
+            VStack(alignment: .leading) {
+                HStack {
+                    Image(systemName: "arrow.left.arrow.right")
+                    
+                    Text("Compared to previous")
+                        .font(.footnote)
+                        .foregroundStyle(.gray)
+                }
+
+                HStack {
+                    PreviousSetCell(
+                        title: "Sets",
+                        color: .red,
+                        previousValue: Double(previousSetsValue),
+                        currentValue: Double(currentSetsValue)
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    PreviousSetCell(
+                        title: "Reps",
+                        color: .green,
+                        previousValue: Double(previousReps),
+                        currentValue: Double(currentReps)
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+
+                HStack {
+                    PreviousSetCell(
+                        title: "Volume (kg)",
+                        color: .cyan,
+                        previousValue: previousVolume,
+                        currentValue: currentVolume
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    PreviousSetCell(
+                        title: "kg/rep",
+                        color: .orange,
+                        previousValue: previousRepsVolume,
+                        currentValue: currentRepsVolume
+                    )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+        }
+        
     }
 }
 

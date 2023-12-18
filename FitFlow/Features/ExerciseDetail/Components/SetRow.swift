@@ -8,32 +8,64 @@
 import SwiftUI
 
 struct SetRow: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    
     var set: Set
     
     var body: some View {
-        HStack {
-            Text("\(Formatters.hourFromDate.string(from: set.date))")
-            
-            Spacer()
-            
-            Group {
-                Text("\(set.reps)")
-                    .bold()
-                    .font(.title3)
-                +
-                Text(" rep")
+        if dynamicTypeSize >= .accessibility3{
+            HStack {
+                Text("\(Formatters.hourFromDate.string(from: set.date))")
+                
+                Spacer()
+                
+                VStack{
+                    Group {
+                        Text("\(set.reps)")
+                            .bold()
+                            .font(.title3)
+                        +
+                        Text(" rep")
+                    }
+                    .foregroundStyle(.green)
+                    
+                    
+                    Group {
+                        Text("\(Formatters.decimal.string(from: NSNumber(value: set.weight)) ?? "")")
+                            .bold()
+                            .font(.title3)
+                        +
+                        Text(" kg")
+                    }
+                    .foregroundStyle(.orange)
+                }
             }
-            .foregroundStyle(.green)
-            .padding(.horizontal)
-            
-            Group {
-                Text("\(Formatters.decimal.string(from: NSNumber(value: set.weight)) ?? "")")
-                    .bold()
-                    .font(.title3)
-                +
-                Text(" kg")
+        }
+        else{
+            HStack {
+                Text("\(Formatters.hourFromDate.string(from: set.date))")
+                
+                Spacer()
+                
+                Group {
+                    Text("\(set.reps)")
+                        .bold()
+                        .font(.title3)
+                    +
+                    Text(" rep")
+                }
+                .foregroundStyle(.green)
+                .padding(.horizontal)
+                
+                Group {
+                    Text("\(Formatters.decimal.string(from: NSNumber(value: set.weight)) ?? "")")
+                        .bold()
+                        .font(.title3)
+                    +
+                    Text(" kg")
+                }
+                .foregroundStyle(.orange)
             }
-            .foregroundStyle(.orange)
         }
     }
 }

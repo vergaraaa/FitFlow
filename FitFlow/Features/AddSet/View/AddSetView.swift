@@ -23,6 +23,8 @@ struct AddSetView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    
     var valid: Bool {
         return reps != 0
     }
@@ -79,7 +81,6 @@ struct AddSetView: View {
                         Text("+")
                     }
                 }
-                
                 Section("Weight") {
                     HStack {
                         Spacer()
@@ -91,43 +92,86 @@ struct AddSetView: View {
                         
                         Spacer()
                     }
-                    
-                
-                    HStack {
-                        Text("-")
                         
-                        ForEach(weightIncrements.reversed(), id: \.self) { increment in
-                            Button("\(Formatters.decimal.string(from: NSNumber(value: increment)) ?? "")") {
-                                if(weight - increment < 0) {
-                                    weight = 0
-                                }
-                                else {
-                                    weight -= increment
+                    if dynamicTypeSize >= .accessibility3{
+                        HStack{
+                            Text("-")
+                            
+                            VStack {
+                                ForEach(weightIncrements, id: \.self) { increment in
+                                    Button("\(Formatters.decimal.string(from: NSNumber(value: increment)) ?? "")") {
+                                        if(weight - increment < 0) {
+                                            weight = 0
+                                        }
+                                        else {
+                                            weight -= increment
+                                        }
+                                    }
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 5)
+                                    .buttonStyle(BorderlessButtonStyle())
+                                    .background(.gray.opacity(0.25))
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .foregroundStyle(Color.primary)
                                 }
                             }
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 5)
-                            .buttonStyle(BorderlessButtonStyle())
-                            .background(.gray.opacity(0.25))
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .foregroundStyle(Color.primary)
-                        }
-                        
-                        Spacer()
-                        
-                        ForEach(weightIncrements, id: \.self) { increment in
-                            Button("\(Formatters.decimal.string(from: NSNumber(value: increment)) ?? "")") {
-                                weight += increment
+                            
+                            Spacer()
+                            
+                            VStack {
+                                ForEach(weightIncrements, id: \.self) { increment in
+                                    Button("\(Formatters.decimal.string(from: NSNumber(value: increment)) ?? "")") {
+                                        weight += increment
+                                    }
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 5)
+                                    .buttonStyle(BorderlessButtonStyle())
+                                    .background(.gray.opacity(0.25))
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .foregroundStyle(Color.primary)
+                                }
                             }
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 5)
-                            .buttonStyle(BorderlessButtonStyle())
-                            .background(.gray.opacity(0.25))
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .foregroundStyle(Color.primary)
+                            
+                            Text("+")
                         }
-                        
-                        Text("+")
+                    }
+                    else {
+                        HStack {
+                            Text("-")
+                            
+                            ForEach(weightIncrements.reversed(), id: \.self) { increment in
+                                Button("\(Formatters.decimal.string(from: NSNumber(value: increment)) ?? "")") {
+                                    if(weight - increment < 0) {
+                                        weight = 0
+                                    }
+                                    else {
+                                        weight -= increment
+                                    }
+                                }
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 5)
+                                .buttonStyle(BorderlessButtonStyle())
+                                .background(.gray.opacity(0.25))
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .foregroundStyle(Color.primary)
+                            }
+                            
+                            Spacer()
+                            
+                            ForEach(weightIncrements, id: \.self) { increment in
+                                Button("\(Formatters.decimal.string(from: NSNumber(value: increment)) ?? "")") {
+                                    weight += increment
+                                }
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 5)
+                                .buttonStyle(BorderlessButtonStyle())
+                                .background(.gray.opacity(0.25))
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .foregroundStyle(Color.primary)
+                            }
+                            
+                            Text("+")
+                        }
                     }
                 }
                 
