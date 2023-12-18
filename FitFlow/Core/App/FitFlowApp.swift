@@ -29,8 +29,6 @@ struct FitFlowApp: App {
     }()
     
     
-
-    
     init() {
         do {
           try Tips.configure()

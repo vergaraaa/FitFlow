@@ -15,37 +15,38 @@ struct RecordTip: Tip {
         Text("Record sets")
             .foregroundColor(.blue)
     }
-   
+    
     var message: Text? {
-        Text("Swipe right to record your sets")
+        Text("Swipe right to record your sets faster!")
             .foregroundColor(.primary)
     }
     
     var options: [TipOption] {
         MaxDisplayCount(3)
+    }
+    
+    var image: Image? {
+        Image(systemName: "text.badge.plus")
     }
     
     static let workoutDetailViewDidOpen = Tips.Event(id: "workoutDetailViewDidOpen")
     
     var rules: [Rule] {
-            
-            #Rule(RecordTip.workoutDetailViewDidOpen) {
-                $0.donations.count >= 1
-            }
+        #Rule(RecordTip.workoutDetailViewDidOpen) {
+            $0.donations.count >= 1
         }
-    
+    }
 }
 
 
 struct DuplicateTip: Tip {
-    
     var title: Text {
         Text("Duplicate sets")
             .foregroundColor(.blue)
     }
-   
+    
     var message: Text? {
-        Text("Swipe right to duplicate your sets")
+        Text("Swipe right to duplicate your sets!")
             .foregroundColor(.primary)
     }
     
@@ -53,13 +54,16 @@ struct DuplicateTip: Tip {
         MaxDisplayCount(3)
     }
     
+    var image: Image? {
+        Image(systemName: "repeat")
+    }
+    
     static let setsListViewDidOpen = Tips.Event(id: "setsListViewDidOpen")
     
     var rules: [Rule] {
-            
-            #Rule(DuplicateTip.setsListViewDidOpen) {
-                $0.donations.count >= 1
-            }
+        
+        #Rule(DuplicateTip.setsListViewDidOpen) {
+            $0.donations.count >= 1
         }
-    
+    }
 }
