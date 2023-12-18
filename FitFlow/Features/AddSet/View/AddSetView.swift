@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct AddSetView: View {
     var exercise: Exercise?
@@ -26,6 +27,8 @@ struct AddSetView: View {
     var valid: Bool {
         return reps != 0
     }
+    
+    let editTip = EditTip()
     
     var body: some View {
         NavigationStack {
@@ -80,6 +83,7 @@ struct AddSetView: View {
                     }
                 }
                 
+                
                 Section("Weight") {
                     HStack {
                         Spacer()
@@ -130,6 +134,8 @@ struct AddSetView: View {
                         Text("+")
                     }
                 }
+                .popoverTip(editTip)
+               
                 
                 Section("Date") {
                     DatePicker("", selection: $date)
@@ -141,6 +147,8 @@ struct AddSetView: View {
                     exercise!.sets.append(newSet)
                     
                     dismiss()
+                    editTip.invalidate(reason: .actionPerformed)
+                    
                 } label: {
                     HStack {
                         Text("Record")
@@ -155,6 +163,9 @@ struct AddSetView: View {
             }
             .navigationTitle(exercise?.name ?? "")
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                    EditTip.addSetViewDidOpen.sendDonation()
+            }
         }
     }
 }
