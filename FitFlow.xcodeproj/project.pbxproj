@@ -36,6 +36,8 @@
 		F0C2DBF52B27890C00C610A3 /* TopTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBF42B27890C00C610A3 /* TopTextModifier.swift */; };
 		F0C2DBF92B27922B00C610A3 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBF82B27922B00C610A3 /* Workout.swift */; };
 		F0C2DBFD2B27947C00C610A3 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBFC2B27947C00C610A3 /* Set.swift */; };
+		F0DE08332B32F848003000BE /* EditWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE08322B32F848003000BE /* EditWorkoutView.swift */; };
+		F0DE08362B32F86F003000BE /* WorkoutImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE08352B32F86F003000BE /* WorkoutImage.swift */; };
 		F0FDF4962B2B7ED1002C88F1 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4952B2B7ED1002C88F1 /* LineChart.swift */; };
 		F0FDF4982B2C53C9002C88F1 /* ProgressChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4972B2C53C9002C88F1 /* ProgressChartView.swift */; };
 		F0FDF49A2B2C54C1002C88F1 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4992B2C54C1002C88F1 /* Functions.swift */; };
@@ -71,6 +73,8 @@
 		F0C2DBF42B27890C00C610A3 /* TopTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTextModifier.swift; sourceTree = "<group>"; };
 		F0C2DBF82B27922B00C610A3 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		F0C2DBFC2B27947C00C610A3 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		F0DE08322B32F848003000BE /* EditWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutView.swift; sourceTree = "<group>"; };
+		F0DE08352B32F86F003000BE /* WorkoutImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutImage.swift; sourceTree = "<group>"; };
 		F0FDF4952B2B7ED1002C88F1 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		F0FDF4972B2C53C9002C88F1 /* ProgressChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChartView.swift; sourceTree = "<group>"; };
 		F0FDF4992B2C54C1002C88F1 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 		0AD51B9F2B28985B006EC3F1 /* AddWorkout */ = {
 			isa = PBXGroup;
 			children = (
+				F0DE08342B32F858003000BE /* Components */,
 				0AD51BA02B289865006EC3F1 /* View */,
 			);
 			path = AddWorkout;
@@ -99,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				0AD51BA12B289872006EC3F1 /* AddWorkoutView.swift */,
+				F0DE08322B32F848003000BE /* EditWorkoutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,6 +339,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F0DE08342B32F858003000BE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F0DE08352B32F86F003000BE /* WorkoutImage.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F0FDF4942B2B7ED1002C88F1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,10 +436,12 @@
 				F0C2DBF92B27922B00C610A3 /* Workout.swift in Sources */,
 				1ACD418A2B2225EB002C92F6 /* ExerciseDetailView.swift in Sources */,
 				F0FDF4962B2B7ED1002C88F1 /* LineChart.swift in Sources */,
+				F0DE08362B32F86F003000BE /* WorkoutImage.swift in Sources */,
 				F0B3A22D2B28ADC600E4364E /* AddExerciseView.swift in Sources */,
 				F03BFC132B27178A006FE46A /* SummaryDetailView.swift in Sources */,
 				F09C38272B29EBD800D12086 /* PreviousSetCell.swift in Sources */,
 				F05D38712B29B54C00EAEC45 /* AddSetView.swift in Sources */,
+				F0DE08332B32F848003000BE /* EditWorkoutView.swift in Sources */,
 				F0C2DBFD2B27947C00C610A3 /* Set.swift in Sources */,
 				F07FF61F2B28753200E23861 /* Exercise.swift in Sources */,
 				F05D98B52B2224E00085DE0A /* SummaryView.swift in Sources */,

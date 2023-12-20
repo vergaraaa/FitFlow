@@ -13,6 +13,7 @@ struct SummaryView: View {
     @Query private var workouts: [Workout]
     @Environment(\.modelContext) private var modelContext
     
+    @State var selectedWorkout: Workout? = nil
     @State private var showAddWorkoutSheet = false
     
     @Query(
@@ -27,8 +28,8 @@ struct SummaryView: View {
             let dateComponents = Functions.dateComponents(from: Date())
             
             return setComponents?.year == dateComponents?.year &&
-                setComponents?.month == dateComponents?.month &&
-                setComponents?.day == dateComponents?.day
+            setComponents?.month == dateComponents?.month &&
+            setComponents?.day == dateComponents?.day
         }
     }
     
@@ -49,9 +50,23 @@ struct SummaryView: View {
                             WorkoutDetailView(workout: workout)
                         } label: {
                             WorkoutRowView(name: workout.name)
+                                .swipeActions(edge: .trailing) {
+                                    Button(role: .destructive) {
+                                        delete(workout)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash.fill")
+                                    }
+                                }
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        selectedWorkout = workout
+                                    } label: {
+                                        Label("Edit", systemImage: "pencil")
+                                    }
+                                    .tint(.blue)
+                                }
                         }
                     }
-                    .onDelete(perform: deleteItem)
                 } header: {
                     HStack {
                         Text("Workouts")
@@ -70,14 +85,14 @@ struct SummaryView: View {
             .sheet(isPresented: $showAddWorkoutSheet) {
                 AddWorkoutView(showAddWorkoutSheet: $showAddWorkoutSheet)
             }
+            .sheet(item: $selectedWorkout) { workout in
+                EditWorkoutView(workout: workout)
+            }
         }
     }
     
-    func deleteItem(_ indexSet: IndexSet) {
-        for index in indexSet {
-            let workout = workouts[index]
-            modelContext.delete(workout)
-        }
+    func delete(_ workout: Workout) {
+        modelContext.delete(workout)
     }
 }
 

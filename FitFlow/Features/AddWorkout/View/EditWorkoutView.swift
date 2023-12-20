@@ -1,23 +1,29 @@
 //
-//  AddWorkoutView.swift
+//  EditWorkoutView.swift
 //  FitFlow
 //
-//  Created by Bisma Baig on 12/12/23.
+//  Created by Edgar Ernesto Vergara Montiel on 20/12/23.
 //
 
 import SwiftUI
 
-struct AddWorkoutView: View {
-    
+struct EditWorkoutView: View {
     @State private var name = ""
     @State private var description = ""
     
-    @Binding var showAddWorkoutSheet: Bool
+    @Bindable var workout: Workout
     
+    @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
     
     private var valid: Bool {
         return !name.isEmpty
+    }
+    
+    init(workout: Workout) {
+        self.workout = workout
+        self._name = State(wrappedValue: workout.name)
+        self._description = State(wrappedValue: workout.wDescription ?? "")
     }
     
     var body: some View {
@@ -47,26 +53,20 @@ struct AddWorkoutView: View {
                     Text("Want to add some details? Go ahead!")
                 }
             }
-            .navigationTitle("Add Workout")
+            .navigationTitle("Edit Workout")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Cancel") {
-                        showAddWorkoutSheet.toggle()
+                        dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") {
-                        let newWorkout = Workout(
-                            name: name,
-                            wDescription: description,
-                            exercises: []
-                        )
-                        
-                        modelContext.insert(newWorkout)
-                        
-                        showAddWorkoutSheet.toggle()
+                        workout.name = name
+                        workout.wDescription = description
+                        dismiss()
                     }
                     .disabled(!valid)
                     .bold()
@@ -77,5 +77,5 @@ struct AddWorkoutView: View {
 }
 
 #Preview {
-    AddWorkoutView(showAddWorkoutSheet: .constant(false))
+    EditWorkoutView(workout: Workout(name: "", wDescription: "", exercises: []))
 }
