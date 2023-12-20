@@ -50,14 +50,13 @@ struct SummaryView: View {
                             WorkoutDetailView(workout: workout)
                         } label: {
                             WorkoutRowView(name: workout.name)
-                                .swipeActions(edge: .trailing) {
+                                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                                     Button(role: .destructive) {
                                         delete(workout)
                                     } label: {
                                         Label("Delete", systemImage: "trash.fill")
                                     }
-                                }
-                                .swipeActions(edge: .leading) {
+                                    
                                     Button {
                                         selectedWorkout = workout
                                     } label: {

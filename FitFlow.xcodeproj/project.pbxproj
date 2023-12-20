@@ -38,6 +38,7 @@
 		F0C2DBFD2B27947C00C610A3 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C2DBFC2B27947C00C610A3 /* Set.swift */; };
 		F0DE08332B32F848003000BE /* EditWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE08322B32F848003000BE /* EditWorkoutView.swift */; };
 		F0DE08362B32F86F003000BE /* WorkoutImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE08352B32F86F003000BE /* WorkoutImage.swift */; };
+		F0DE08392B32FB24003000BE /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE08382B32FB24003000BE /* EditExerciseView.swift */; };
 		F0FDF4962B2B7ED1002C88F1 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4952B2B7ED1002C88F1 /* LineChart.swift */; };
 		F0FDF4982B2C53C9002C88F1 /* ProgressChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4972B2C53C9002C88F1 /* ProgressChartView.swift */; };
 		F0FDF49A2B2C54C1002C88F1 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4992B2C54C1002C88F1 /* Functions.swift */; };
@@ -75,6 +76,7 @@
 		F0C2DBFC2B27947C00C610A3 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		F0DE08322B32F848003000BE /* EditWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutView.swift; sourceTree = "<group>"; };
 		F0DE08352B32F86F003000BE /* WorkoutImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutImage.swift; sourceTree = "<group>"; };
+		F0DE08382B32FB24003000BE /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
 		F0FDF4952B2B7ED1002C88F1 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		F0FDF4972B2C53C9002C88F1 /* ProgressChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChartView.swift; sourceTree = "<group>"; };
 		F0FDF4992B2C54C1002C88F1 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -91,13 +93,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0AD51B9F2B28985B006EC3F1 /* AddWorkout */ = {
+		0AD51B9F2B28985B006EC3F1 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
 				F0DE08342B32F858003000BE /* Components */,
 				0AD51BA02B289865006EC3F1 /* View */,
 			);
-			path = AddWorkout;
+			path = Workout;
 			sourceTree = "<group>";
 		};
 		0AD51BA02B289865006EC3F1 /* View */ = {
@@ -216,18 +218,20 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		F0B3A22A2B28AAA600E4364E /* AddExercise */ = {
+		F0B3A22A2B28AAA600E4364E /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
+				F0DE08372B32FAEE003000BE /* Components */,
 				F0B3A22B2B28AABB00E4364E /* View */,
 			);
-			path = AddExercise;
+			path = Exercise;
 			sourceTree = "<group>";
 		};
 		F0B3A22B2B28AABB00E4364E /* View */ = {
 			isa = PBXGroup;
 			children = (
 				F0B3A22C2B28ADC600E4364E /* AddExerciseView.swift */,
+				F0DE08382B32FB24003000BE /* EditExerciseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,12 +251,12 @@
 		F0C2DBE12B27827F00C610A3 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				0AD51B9F2B28985B006EC3F1 /* AddWorkout */,
-				F0B3A22A2B28AAA600E4364E /* AddExercise */,
 				F05D386E2B29B53F00EAEC45 /* AddSet */,
 				F07FF6222B28795D00E23861 /* EditSet */,
+				F0B3A22A2B28AAA600E4364E /* Exercise */,
 				F0C2DBF22B2788EA00C610A3 /* ExerciseDetail */,
 				F0C2DBE52B2782B100C610A3 /* Summary */,
+				0AD51B9F2B28985B006EC3F1 /* Workout */,
 				F07FF6202B28763C00E23861 /* WorkoutDetail */,
 			);
 			path = Features;
@@ -347,6 +351,13 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		F0DE08372B32FAEE003000BE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F0FDF4942B2B7ED1002C88F1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF5EAAE42B279A83000FE22D /* EditSetView.swift in Sources */,
+				F0DE08392B32FB24003000BE /* EditExerciseView.swift in Sources */,
 				F0524D4E2B2A331400F0E766 /* SetsListView.swift in Sources */,
 				F05D98A72B221C140085DE0A /* (null) in Sources */,
 				1CC284532B270E6000B1C160 /* WorkoutDetailView.swift in Sources */,
