@@ -91,7 +91,14 @@ struct SummaryView: View {
     }
     
     func delete(_ workout: Workout) {
+        workout.excercises.forEach { exercise in
+            exercise.sets.forEach { set in
+                modelContext.delete(set)
+            }
+            modelContext.delete(exercise)
+        }
         modelContext.delete(workout)
+        
         try? modelContext.save()
     }
 }

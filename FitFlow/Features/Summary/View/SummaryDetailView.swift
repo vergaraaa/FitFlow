@@ -33,10 +33,10 @@ struct SummaryDetailView: View {
         var dictionary: [String: [Set]] = [:]
         
         dateSets.forEach { set in
-            if dictionary[set.exercise!.name] == nil {
-                dictionary[set.exercise!.name] = [set]
+            if dictionary[set.exercise?.name ?? ""] == nil {
+                dictionary[set.exercise?.name ?? ""] = [set]
             } else {
-                dictionary[set.exercise!.name]?.append(set)
+                dictionary[set.exercise?.name ?? ""]?.append(set)
             }
         }
         

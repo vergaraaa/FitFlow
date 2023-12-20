@@ -94,6 +94,9 @@ struct WorkoutDetailView: View {
     }
     
     func delete(_ exercise: Exercise) {
+        exercise.sets.forEach { set in
+            modelContext.delete(set)
+        }
         modelContext.delete(exercise)
         try? modelContext.save()
     }
