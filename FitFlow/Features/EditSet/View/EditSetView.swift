@@ -56,7 +56,7 @@ struct EditSetView: View {
                         
                         TextField("Reps", value: $weight, formatter: Formatters.decimal)
                             .multilineTextAlignment(.trailing)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.decimalPad)
                     }
                 }
                 

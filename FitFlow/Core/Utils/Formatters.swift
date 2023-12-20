@@ -13,7 +13,6 @@ struct Formatters {
         
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
-        formatter.decimalSeparator = "."
         
         return formatter
     }()
