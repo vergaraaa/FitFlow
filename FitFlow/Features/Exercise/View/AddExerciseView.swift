@@ -27,16 +27,7 @@ struct AddExerciseView: View {
             Form {
                 // Image section
                 Section {
-                    Image(systemName: "figure.strengthtraining.traditional")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
-                        .padding()
-                        .background {
-                            Circle()
-                                .foregroundColor(.blue)
-                        }
-                        .frame(maxWidth: .infinity)
+                    ExerciseImage()
                 }
                 .listRowBackground(Color.clear)
                 

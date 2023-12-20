@@ -92,6 +92,7 @@ struct SummaryView: View {
     
     func delete(_ workout: Workout) {
         modelContext.delete(workout)
+        try? modelContext.save()
     }
 }
 

@@ -39,6 +39,7 @@
 		F0DE08332B32F848003000BE /* EditWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE08322B32F848003000BE /* EditWorkoutView.swift */; };
 		F0DE08362B32F86F003000BE /* WorkoutImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE08352B32F86F003000BE /* WorkoutImage.swift */; };
 		F0DE08392B32FB24003000BE /* EditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE08382B32FB24003000BE /* EditExerciseView.swift */; };
+		F0DE083B2B32FB97003000BE /* ExerciseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE083A2B32FB97003000BE /* ExerciseImage.swift */; };
 		F0FDF4962B2B7ED1002C88F1 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4952B2B7ED1002C88F1 /* LineChart.swift */; };
 		F0FDF4982B2C53C9002C88F1 /* ProgressChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4972B2C53C9002C88F1 /* ProgressChartView.swift */; };
 		F0FDF49A2B2C54C1002C88F1 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDF4992B2C54C1002C88F1 /* Functions.swift */; };
@@ -77,6 +78,7 @@
 		F0DE08322B32F848003000BE /* EditWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutView.swift; sourceTree = "<group>"; };
 		F0DE08352B32F86F003000BE /* WorkoutImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutImage.swift; sourceTree = "<group>"; };
 		F0DE08382B32FB24003000BE /* EditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseView.swift; sourceTree = "<group>"; };
+		F0DE083A2B32FB97003000BE /* ExerciseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseImage.swift; sourceTree = "<group>"; };
 		F0FDF4952B2B7ED1002C88F1 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		F0FDF4972B2C53C9002C88F1 /* ProgressChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressChartView.swift; sourceTree = "<group>"; };
 		F0FDF4992B2C54C1002C88F1 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 		F0DE08372B32FAEE003000BE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F0DE083A2B32FB97003000BE /* ExerciseImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				F05D38742B29BBBC00EAEC45 /* Formatters.swift in Sources */,
 				1C6600752B2B4FB700D03B46 /* Tip.swift in Sources */,
 				F0C2DBF12B2788AB00C610A3 /* ContentView.swift in Sources */,
+				F0DE083B2B32FB97003000BE /* ExerciseImage.swift in Sources */,
 				F0C2DBF92B27922B00C610A3 /* Workout.swift in Sources */,
 				1ACD418A2B2225EB002C92F6 /* ExerciseDetailView.swift in Sources */,
 				F0FDF4962B2B7ED1002C88F1 /* LineChart.swift in Sources */,

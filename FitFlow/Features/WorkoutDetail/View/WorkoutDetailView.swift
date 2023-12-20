@@ -18,6 +18,7 @@ struct WorkoutDetailView: View {
     @State private var showAddSetSheet = false
     
     @State var selectedExercise: Exercise?
+    @State var exerciseToEdit: Exercise?
     
     var body: some View {
         
@@ -29,24 +30,38 @@ struct WorkoutDetailView: View {
                     } label: {
                         HStack {
                             Text(exercise.name)
-                                .swipeActions(edge: .leading) {
-                                    Button {
-                                        selectedExercise = exercise
-                                        recordTip.invalidate(reason: .actionPerformed)
-                                    } label: {
-                                        Text("Record")
-                                    }
-                                    .tint(.blue)
-                                }
                             
                             Spacer()
                             
                             LineChart(exercise: exercise)
                         }
+                        .swipeActions(edge: .leading) {
+                            Button {
+                                selectedExercise = exercise
+                                recordTip.invalidate(reason: .actionPerformed)
+                            } label: {
+                                Text("Record")
+                            }
+                            .tint(.blue)
+                        }
+                    
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button(role: .destructive) {
+                                delete(exercise)
+                            } label: {
+                                Label("Delete", systemImage: "trash.fill")
+                            }
+
+                            Button {
+                                exerciseToEdit = exercise
+                            } label: {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            .tint(.blue)
+                        }
                         .popoverTip(recordTip)
                     }
                 }
-                .onDelete(perform: deleteItem)
             } header: {
                 HStack {
                     Text("Exercises")
@@ -65,23 +80,23 @@ struct WorkoutDetailView: View {
         .sheet(isPresented: $showAddExerciseSheet) {
             AddExerciseView(workout: workout, showAddExerciseSheet: $showAddExerciseSheet)
         }
-        .sheet(item: $selectedExercise) { selectedExercise in
-            AddSetView(exercise: selectedExercise)
+        .sheet(item: $selectedExercise) { exercise in
+            AddSetView(exercise: exercise)
+        }
+        .sheet(item: $exerciseToEdit) { exercise in
+            EditExerciseView(exercise: exercise)
         }
         .onAppear {
             if !workout.excercises.isEmpty {
-                RecordTip.workoutDetailViewDidOpen.sendDonation() }
+                RecordTip.workoutDetailViewDidOpen.sendDonation()
+            }
         }
     }
     
-    
-    func deleteItem(_ indexSet: IndexSet) {
-        for index in indexSet {
-            let exercise = workout.excercises[index]
-            modelContext.delete(exercise)
-        }
+    func delete(_ exercise: Exercise) {
+        modelContext.delete(exercise)
+        try? modelContext.save()
     }
-    
 }
 
 
